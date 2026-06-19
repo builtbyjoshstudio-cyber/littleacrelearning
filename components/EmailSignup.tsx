@@ -37,13 +37,10 @@ export function EmailSignup({
     }
 
     setStatus("submitting");
+    // Static site (GitHub Pages) — no server route. To capture real signups,
+    // POST { name, email } to an ESP/form endpoint (ConvertKit, Mailchimp,
+    // Formspree) here and gate success on res.ok.
     try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email }),
-      });
-      if (!res.ok) throw new Error("Request failed");
       setStatus("success");
       onSuccess?.();
     } catch {
