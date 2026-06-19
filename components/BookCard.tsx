@@ -35,9 +35,19 @@ export function BookCard({
             {book.shortDescription}
           </p>
         )}
-        <p className="mt-auto pt-2 font-sans text-[15px] font-bold text-terracotta">
-          {book.price ?? "Coming soon"}
-        </p>
+        {book.price ? (
+          <p className="mt-auto pt-2 font-sans text-[15px] font-bold text-terracotta">
+            {book.price}
+          </p>
+        ) : book.amazonUrl ? (
+          <p className="mt-auto pt-2 font-sans text-[14px] font-bold text-forest">
+            Available on Amazon →
+          </p>
+        ) : (
+          <p className="mt-auto pt-2 font-sans text-[14px] font-bold text-muted-soft">
+            Coming soon
+          </p>
+        )}
       </div>
     </Link>
   );
