@@ -6,7 +6,6 @@ import { getBandByAge } from "@/content/ageBands";
 import { AgeBadge } from "@/components/AgeBadge";
 import { CoverPlaceholder } from "@/components/CoverPlaceholder";
 import { AmazonButton } from "@/components/AmazonButton";
-import { AddToCartButton } from "@/components/AddToCartButton";
 import { BookCard } from "@/components/BookCard";
 
 export function generateStaticParams() {
@@ -32,12 +31,13 @@ export default function BookPage({ params }: { params: { slug: string } }) {
 
   const band = getBandByAge(book.ageBand);
   const related = getRelatedBooks(book);
+  const seriesTotal = books.filter((b) => b.series === book.series).length;
 
   const stats = [
     { label: "Pages", value: String(book.pages) },
     { label: "Format", value: book.format },
-    { label: "Theme", value: book.theme },
-    { label: "Read time", value: book.readTime },
+    { label: "Series", value: book.series },
+    { label: "In series", value: `Book ${book.bookNumber} of ${seriesTotal}` },
   ];
 
   return (
@@ -87,22 +87,38 @@ export default function BookPage({ params }: { params: { slug: string } }) {
           <h1 className="mt-3 font-display text-[28px] font-extrabold leading-tight text-ink md:text-[40px]">
             {book.title}
           </h1>
+          <p className="mt-2 font-display text-[17px] font-bold text-forest md:text-[19px]">
+            {book.subtitle}
+          </p>
           <p className="mt-1.5 text-[15px] text-muted">
             {book.series} · {book.byline}
           </p>
-          <p className="mt-4 font-display text-[30px] font-extrabold text-terracotta">
-            {book.price}
-          </p>
+          {book.price && (
+            <p className="mt-4 font-display text-[30px] font-extrabold text-terracotta">
+              {book.price}
+            </p>
+          )}
           <p className="mt-4 max-w-prose text-[16px] leading-relaxed text-body-soft md:text-[17px]">
             {book.longDescription}
           </p>
 
-          {/* CTAs */}
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <div className="sm:flex-1">
-              <AddToCartButton title={book.title} />
-            </div>
-            <AmazonButton href={book.amazonUrl} fullWidth className="sm:flex-1" />
+          {/* Buy CTA */}
+          <div className="mt-7">
+            {book.amazonUrl ? (
+              <AmazonButton href={book.amazonUrl} fullWidth className="sm:w-auto sm:min-w-[280px]" />
+            ) : (
+              <div className="flex flex-col items-start gap-2">
+                <span className="inline-flex items-center justify-center gap-2 rounded-pill border-2 border-[#e2dccb] bg-cream px-7 py-3.5 font-sans text-[15px] font-bold text-muted">
+                  Coming soon to Amazon
+                </span>
+                <Link
+                  href="/printables"
+                  className="font-sans text-[13.5px] font-bold text-forest hover:underline"
+                >
+                  Get the free printable pack & hear when it&apos;s out →
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Stat tiles */}
@@ -166,7 +182,7 @@ export default function BookPage({ params }: { params: { slug: string } }) {
       {related.length > 0 && (
         <section className="mt-16 md:mt-20">
           <h2 className="mb-6 font-display text-[22px] font-extrabold text-ink md:text-[28px]">
-            More in this age range
+            More from Little Acre
           </h2>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {related.map((b) => (

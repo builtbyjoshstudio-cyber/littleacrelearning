@@ -27,13 +27,16 @@ export function BookCard({
         <h3 className="mt-2 font-display text-[17px] font-extrabold leading-tight text-ink">
           {book.title}
         </h3>
+        <p className="mt-1 text-[12.5px] font-semibold leading-snug text-muted-soft">
+          {book.subtitle}
+        </p>
         {showDescription && (
           <p className="mt-1.5 text-[13.5px] leading-snug text-muted">
             {book.shortDescription}
           </p>
         )}
         <p className="mt-auto pt-2 font-sans text-[15px] font-bold text-terracotta">
-          {book.price}
+          {book.price ?? "Coming soon"}
         </p>
       </div>
     </Link>

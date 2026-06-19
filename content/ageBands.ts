@@ -1,4 +1,4 @@
-import type { AgeBand, AgeBandMeta, BandId } from "@/lib/types";
+import type { AgeBand, AgeBandMeta, BandId, Series } from "@/lib/types";
 
 export const ageBands: AgeBandMeta[] = [
   {
@@ -6,7 +6,7 @@ export const ageBands: AgeBandMeta[] = [
     ageBand: "2-4",
     name: "Sprouts",
     ages: "Ages 2–4",
-    description: "Chunky board-style stories for the very first readers.",
+    description: "First coloring & counting books — big, bold pages for the very littlest hands.",
     bg: "#F6E3D8",
     solid: "#C9714E",
     text: "#9c4d34",
@@ -16,7 +16,7 @@ export const ageBands: AgeBandMeta[] = [
     ageBand: "5-7",
     name: "Saplings",
     ages: "Ages 5–7",
-    description: "Picture books that grow with new and early readers.",
+    description: "Trace, read & color — early reading and handwriting, one page at a time.",
     bg: "#F8EBCF",
     solid: "#E0A24B",
     text: "#9a6e1f",
@@ -26,7 +26,7 @@ export const ageBands: AgeBandMeta[] = [
     ageBand: "8-10",
     name: "Branches",
     ages: "Ages 8–10",
-    description: "Longer stories for confident, curious readers.",
+    description: "Detailed coloring with true facts to read, think, and color.",
     bg: "#DCEBE4",
     solid: "#3F7A6B",
     text: "#2f5a4f",
@@ -57,9 +57,4 @@ export function getBandById(id: BandId): AgeBandMeta {
   return byId[id];
 }
 
-export const themes = [
-  "Bedtime",
-  "Nature & seasons",
-  "Friendship",
-  "Feelings",
-] as const;
+export const seriesList: Series[] = ["Farm Friends", "Dino Friends"];

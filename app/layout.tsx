@@ -21,15 +21,15 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   metadataBase: new URL("https://littleacrelearning.com"),
   title: {
-    default: "Little Acre Learning — Picture books for ages 2–10",
+    default: "Little Acre Learning — Coloring & activity books for ages 2–10",
     template: "%s · Little Acre Learning",
   },
   description:
-    "Warm, wholesome picture and activity books for children ages 2–10. Grow a love of reading, one little story at a time.",
+    "Warm, wholesome coloring & activity books for children ages 2–10 — speech, counting, tracing, and true facts. Learning that feels like play.",
   openGraph: {
     title: "Little Acre Learning",
     description:
-      "Grow a love of reading, one little story at a time. Picture books for ages 2–10.",
+      "Coloring & activity books for ages 2–10. Learning that feels like play.",
     type: "website",
   },
 };

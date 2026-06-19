@@ -1,221 +1,140 @@
-import type { AgeBand, Book } from "@/lib/types";
+import type { AgeBand, Book, Series } from "@/lib/types";
+
+const FARM_GRADIENT = "linear-gradient(135deg,#5BC6BC,#2E9D93)";
+const DINO_GRADIENT = "linear-gradient(135deg,#7FC96B,#4E9A3E)";
 
 export const books: Book[] = [
-  // ───────────────────────── Sprouts (Ages 2–4) ─────────────────────────
+  // ───────────────────────── Farm Friends ─────────────────────────
   {
-    slug: "good-night-little-lamb",
-    title: "Good Night, Little Lamb",
+    slug: "farm-friends-2-4",
+    title: "Little Acre Farm Friends",
+    subtitle: "A Speech & Counting Coloring Book",
     series: "Farm Friends",
+    bookNumber: 1,
     ageBand: "2-4",
-    price: "$9.99",
-    byline: "by The Little Acre Studio",
-    shortDescription: "A gentle bedtime tour of a sleepy farm.",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "A big, bright first coloring book — color friendly farm animals, count to ten, and practice happy first words.",
     longDescription:
-      "As the sun dips behind the barn, Little Lamb says good night to every friend on the farm — the dozing ducks, the quiet cows, and the moon above the meadow. Soft, rhythmic text makes this a calming last story before sleep, with cozy scenes little ones will ask for again and again.",
+      "A big, bright coloring book for the littlest learners. Color in friendly farm animals, count out loud from one to ten, and practice happy first words together — moo, oink, baa! Every page is built for little hands just beginning to explore crayons, colors, and sounds.",
     whatItTeaches: [
-      "Calming bedtime routines",
-      "First farm animal names",
-      "Gentle rhyme & rhythm",
+      "40+ big, bold pictures to color",
+      "Count along from 1 to 10",
+      "First words & silly animal sounds",
+      "Just right for ages 2–4",
     ],
-    pages: 24,
-    format: "Board book",
-    theme: "Bedtime",
-    readTime: "4 min",
-    amazonUrl: "https://www.amazon.com/dp/PLACEHOLDER1",
-    coverImage: null,
-    gradient: "linear-gradient(135deg,#88A98C,#46604E)",
+    pages: 40,
+    format: "Coloring book",
+    amazonUrl: null,
+    coverImage: "/covers/farm-friends-2-4.jpg",
+    gradient: FARM_GRADIENT,
     featured: true,
   },
   {
-    slug: "one-little-seed",
-    title: "One Little Seed",
+    slug: "farm-friends-5-7",
+    title: "Little Acre Farm Friends",
+    subtitle: "Trace, Read & Learn",
     series: "Farm Friends",
-    ageBand: "2-4",
-    price: "$9.99",
-    byline: "by The Little Acre Studio",
-    shortDescription: "Count along as a tiny seed becomes a garden.",
-    longDescription:
-      "One little seed, two green leaves, three bright flowers… Count from one to ten while a single seed grows into a whole garden full of friends. Bold shapes and a satisfying repeating refrain make early counting feel like play.",
-    whatItTeaches: [
-      "Counting 1–10",
-      "How plants grow",
-      "Cause and effect",
-    ],
-    pages: 22,
-    format: "Board book",
-    theme: "Nature & seasons",
-    readTime: "4 min",
-    amazonUrl: "https://www.amazon.com/dp/PLACEHOLDER2",
-    coverImage: null,
-    gradient: "linear-gradient(135deg,#9CB87F,#5C7A4A)",
-  },
-  {
-    slug: "stomp-little-dino",
-    title: "Stomp, Little Dino!",
-    series: "Dinosaur Friends",
-    ageBand: "2-4",
-    price: "$9.99",
-    byline: "by The Little Acre Studio",
-    shortDescription: "A noisy, joyful book of dinosaur movements.",
-    longDescription:
-      "Stomp like a big dino, flap like a winged one, and curl up small like a hatchling. This lift-and-move story invites toddlers to wiggle along with each playful page — perfect for burning a little energy before quiet time.",
-    whatItTeaches: [
-      "Action words & movement",
-      "Body awareness",
-      "Following simple directions",
-    ],
-    pages: 20,
-    format: "Board book",
-    theme: "Feelings",
-    readTime: "3 min",
-    amazonUrl: "https://www.amazon.com/dp/PLACEHOLDER3",
-    coverImage: null,
-    gradient: "linear-gradient(135deg,#E0A86B,#C9573E)",
-  },
-
-  // ───────────────────────── Saplings (Ages 5–7) ─────────────────────────
-  {
-    slug: "the-mossy-path",
-    title: "The Mossy Path",
-    series: "Farm Friends",
+    bookNumber: 2,
     ageBand: "5-7",
-    price: "$12.99",
-    byline: "by The Little Acre Studio",
-    shortDescription: "Two friends find their way home through the woods.",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Trace true sentences about 40 farm animals to grow reading, handwriting, and curiosity.",
     longDescription:
-      "When Hen and Hedgehog wander off the mossy path, the woods feel a little bigger and a little darker. But by working together — and remembering what they noticed on the way in — they find their way back to the warm farm gate. A reassuring story about problem-solving and the comfort of a good friend.",
+      "Little Acre Farm Friends is back — now for big-kid learning! Trace fun, true sentences about forty farm animals and places, then read each fact aloud together to grow reading, handwriting, and a whole lot of curiosity.",
     whatItTeaches: [
-      "Problem-solving",
-      "Working together",
-      "Naming feelings like worry",
+      "40 farm animals & places — each with a true fact",
+      "Trace whole sentences for neat handwriting",
+      "Read facts aloud to build vocabulary",
+      "Just right for ages 5–7",
     ],
-    pages: 32,
-    format: "Paperback picture book",
-    theme: "Friendship",
-    readTime: "8 min",
-    amazonUrl: "https://www.amazon.com/dp/PLACEHOLDER4",
-    coverImage: null,
-    gradient: "linear-gradient(135deg,#8FB6A5,#3F7A6B)",
+    pages: 40,
+    format: "Activity book",
+    amazonUrl: null,
+    coverImage: "/covers/farm-friends-5-7.jpg",
+    gradient: FARM_GRADIENT,
     featured: true,
   },
   {
-    slug: "when-the-leaves-turn",
-    title: "When the Leaves Turn",
+    slug: "farm-friends-8-10",
+    title: "Little Acre Farm Friends",
+    subtitle: "Read · Think · Color",
     series: "Farm Friends",
-    ageBand: "5-7",
-    price: "$12.99",
-    byline: "by The Little Acre Studio",
-    shortDescription: "A year on the farm, one season at a time.",
+    bookNumber: 3,
+    ageBand: "8-10",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Forty detailed farm scenes to color, each paired with a true fact and a find-and-color challenge.",
     longDescription:
-      "Follow the little farm through spring rain, summer sun, autumn leaves, and the first quiet snow. Each season brings new chores, new colors, and new reasons to be grateful — a warm introduction to the year going round.",
+      "Little Acre Farm Friends is back — now for big kids! Forty richly detailed pen-and-ink scenes pair real farm science with calm, focused coloring. Read a true Fact Zone, talk over a Think question, then hunt for hidden details with a Find & Color challenge.",
     whatItTeaches: [
-      "The four seasons",
-      "Patience & change",
-      "Gratitude",
+      "40 detailed animals & farm scenes to color",
+      "Fact Zone — a true science fact on every page",
+      "Think — a question to puzzle over together",
+      "Find & Color — hunt for hidden details",
     ],
-    pages: 34,
-    format: "Paperback picture book",
-    theme: "Nature & seasons",
-    readTime: "9 min",
-    amazonUrl: "https://www.amazon.com/dp/PLACEHOLDER5",
-    coverImage: null,
-    gradient: "linear-gradient(135deg,#E7C46A,#C99A33)",
-  },
-  {
-    slug: "the-littlest-long-neck",
-    title: "The Littlest Long-Neck",
-    series: "Dinosaur Friends",
-    ageBand: "5-7",
-    price: "$12.99",
-    byline: "by The Little Acre Studio",
-    shortDescription: "Being small turns out to be a big advantage.",
-    longDescription:
-      "Pip is the smallest long-neck in the herd, and she's tired of always being last. But when the herd needs someone who can squeeze through a narrow canyon, Pip discovers that the very thing she worried about is exactly what makes her special. A gentle story about self-worth.",
-    whatItTeaches: [
-      "Self-worth & confidence",
-      "Big feelings, named gently",
-      "Belonging",
-    ],
-    pages: 32,
-    format: "Paperback picture book",
-    theme: "Feelings",
-    readTime: "8 min",
-    amazonUrl: "https://www.amazon.com/dp/PLACEHOLDER6",
-    coverImage: null,
-    gradient: "linear-gradient(135deg,#C9A8D4,#7A5C8E)",
+    pages: 40,
+    format: "Coloring book",
+    amazonUrl: null,
+    coverImage: "/covers/farm-friends-8-10.jpg",
+    gradient: FARM_GRADIENT,
     featured: true,
   },
 
-  // ───────────────────────── Branches (Ages 8–10) ─────────────────────────
+  // ───────────────────────── Dino Friends ─────────────────────────
   {
-    slug: "the-river-that-remembered",
-    title: "The River That Remembered",
-    series: "Farm Friends",
-    ageBand: "8-10",
-    price: "$14.99",
-    byline: "by The Little Acre Studio",
-    shortDescription: "A summer mystery along the old farm creek.",
+    slug: "dino-friends-2-4",
+    title: "Little Acre Dino Friends",
+    subtitle: "A Speech & Counting Activity Coloring Book",
+    series: "Dino Friends",
+    bookNumber: 1,
+    ageBand: "2-4",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Color 50 friendly dinosaurs, count along, and make happy dino sounds — made for little hands.",
     longDescription:
-      "When the creek behind the farm runs dry, three friends set out to find the source — and uncover the story of how the whole valley came to be. A longer chapter-style read full of wonder, teamwork, and just enough adventure for confident readers.",
+      "Meet a whole valley of gentle, friendly dinosaurs! Reach up tall with Brachiosaurus, stomp like Triceratops, and swish your tail like Stegosaurus. Every big, bold page has a happy dinosaur sound to make and something fun to count together.",
     whatItTeaches: [
-      "Cause & effect in nature",
-      "Curiosity & research",
-      "Perseverance",
+      "50 big, bold dinosaurs to color",
+      "Count horns, plates & leaves from 1 to 5",
+      "Dino sounds & first words to say aloud",
+      "Wiggle, stomp & stretch along the way",
     ],
-    pages: 64,
-    format: "Illustrated chapter book",
-    theme: "Nature & seasons",
-    readTime: "25 min",
-    amazonUrl: "https://www.amazon.com/dp/PLACEHOLDER7",
-    coverImage: null,
-    gradient: "linear-gradient(135deg,#7FA8B8,#3F6E7A)",
+    pages: 50,
+    format: "Activity coloring book",
+    amazonUrl: null,
+    coverImage: "/covers/dino-friends-2-4.jpg",
+    gradient: DINO_GRADIENT,
     featured: true,
   },
   {
-    slug: "fossil-finders-club",
-    title: "The Fossil Finders Club",
-    series: "Dinosaur Friends",
-    ageBand: "8-10",
-    price: "$14.99",
-    byline: "by The Little Acre Studio",
-    shortDescription: "Four kids, one museum, and a missing bone.",
+    slug: "dino-friends-5-7",
+    title: "Little Acre Dino Friends",
+    subtitle: "A Trace, Read & Learn Activity Book",
+    series: "Dino Friends",
+    bookNumber: 2,
+    ageBand: "5-7",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Trace a sentence and read a true dino fact on every page while coloring 70 dinosaurs of land, sea, and sky.",
     longDescription:
-      "The Fossil Finders Club thought they'd seen every exhibit at the natural history museum — until a single dinosaur bone goes missing the night before the big opening. With careful observation and a little courage, the club pieces together what really happened. A satisfying mystery for budding scientists.",
+      "Explore a whole world of dinosaurs — on land, in the sea, and up in the sky! Color the mighty Tyrannosaurus, the long-necked Diplodocus, and the soaring Quetzalcoatlus. Every page has a sentence to trace and a true dino fact to read together.",
     whatItTeaches: [
-      "Observation & deduction",
-      "Teamwork under pressure",
-      "How fossils form",
+      "70 big, bold dinosaurs to color",
+      "Trace a sentence on every page",
+      "A true dino fact to read & learn",
+      "Dinos of land, sea & sky",
     ],
-    pages: 72,
-    format: "Illustrated chapter book",
-    theme: "Friendship",
-    readTime: "28 min",
-    amazonUrl: "https://www.amazon.com/dp/PLACEHOLDER8",
-    coverImage: null,
-    gradient: "linear-gradient(135deg,#9CB87F,#46604E)",
-  },
-  {
-    slug: "the-quiet-storm",
-    title: "The Quiet Storm",
-    series: "Dinosaur Friends",
-    ageBand: "8-10",
-    price: "$14.99",
-    byline: "by The Little Acre Studio",
-    shortDescription: "Learning that brave and scared can live together.",
-    longDescription:
-      "Rex is the bravest dino in the valley — until the night of the great storm, when even he feels his heart pound. Through a long, dark night he learns that real courage isn't the absence of fear, but the choice to help your friends anyway. A thoughtful read about big emotions.",
-    whatItTeaches: [
-      "Emotional resilience",
-      "Empathy & helping others",
-      "Courage vs. fearlessness",
-    ],
-    pages: 68,
-    format: "Illustrated chapter book",
-    theme: "Feelings",
-    readTime: "26 min",
-    amazonUrl: "https://www.amazon.com/dp/PLACEHOLDER9",
-    coverImage: null,
-    gradient: "linear-gradient(135deg,#DDB48A,#B5654A)",
+    pages: 70,
+    format: "Activity book",
+    amazonUrl: null,
+    coverImage: "/covers/dino-friends-5-7.jpg",
+    gradient: DINO_GRADIENT,
   },
 ];
 
@@ -227,13 +146,17 @@ export function getBooksByAge(ageBand: AgeBand): Book[] {
   return books.filter((b) => b.ageBand === ageBand);
 }
 
+export function getBooksBySeries(series: Series): Book[] {
+  return books.filter((b) => b.series === series);
+}
+
 export function getFeaturedBooks(): Book[] {
   return books.filter((b) => b.featured);
 }
 
 export function getRelatedBooks(book: Book, limit = 4): Book[] {
   return books
-    .filter((b) => b.ageBand === book.ageBand && b.slug !== book.slug)
-    .concat(books.filter((b) => b.ageBand !== book.ageBand && b.slug !== book.slug))
+    .filter((b) => b.series === book.series && b.slug !== book.slug)
+    .concat(books.filter((b) => b.series !== book.series && b.slug !== book.slug))
     .slice(0, limit);
 }

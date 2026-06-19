@@ -6,7 +6,7 @@ import { BooksBrowser } from "@/components/BooksBrowser";
 export const metadata: Metadata = {
   title: "All books",
   description:
-    "Browse Little Acre Learning picture and activity books by age band and theme — for readers ages 2 to 10.",
+    "Browse Little Acre Learning coloring & activity books by age band and series — for children ages 2 to 10.",
 };
 
 export default function BooksPage() {
@@ -17,8 +17,8 @@ export default function BooksPage() {
           All books
         </h1>
         <p className="mt-2 max-w-xl text-[15px] text-body-soft md:text-[17px]">
-          {books.length} warm, wholesome titles across three age bands and two
-          series — Farm Friends and Dinosaur Friends.
+          {books.length} warm, wholesome coloring &amp; activity books across three
+          age bands and two series — Farm Friends and Dino Friends.
         </p>
       </header>
 

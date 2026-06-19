@@ -2,9 +2,7 @@ export type AgeBand = "2-4" | "5-7" | "8-10";
 
 export type BandId = "sprouts" | "saplings" | "branches";
 
-export type Series = "Farm Friends" | "Dinosaur Friends";
-
-export type Theme = "Bedtime" | "Nature & seasons" | "Friendship" | "Feelings";
+export type Series = "Farm Friends" | "Dino Friends";
 
 export interface AgeBandMeta {
   id: BandId;
@@ -19,22 +17,23 @@ export interface AgeBandMeta {
 
 export interface Book {
   slug: string;
-  title: string;
+  title: string; // series title as shown on the cover
+  subtitle: string; // cover subtitle / edition, e.g. "A Speech & Counting Coloring Book"
   series: Series;
+  bookNumber: number; // position within its series
   ageBand: AgeBand;
-  price: string;
+  /** Price string once listed (e.g. "$7.99"); null = not yet available. */
+  price: string | null;
   byline: string;
   shortDescription: string;
   longDescription: string;
   whatItTeaches: string[];
-  pages: number;
+  pages: number; // coloring pages, as stated on the cover
   format: string;
-  theme: Theme;
-  readTime: string;
-  amazonUrl: string;
-  /** Real cover art dropped in later; null uses the gradient placeholder. */
-  coverImage: string | null;
-  /** Tailwind-safe inline gradient used for the placeholder cover slot. */
+  /** Amazon listing URL once live; null shows a "Coming soon" CTA. */
+  amazonUrl: string | null;
+  coverImage: string; // /covers/<slug>.jpg
+  /** Inline gradient used as a tint behind sample-page slots. */
   gradient: string;
   featured?: boolean;
 }

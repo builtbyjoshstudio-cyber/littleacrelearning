@@ -21,13 +21,13 @@ export default function HomePage() {
         />
         <div className="shell grid items-center gap-10 py-14 md:grid-cols-2 md:gap-12 md:py-20">
           <div className="text-center md:text-left">
-            <p className="eyebrow text-sage">Picture books for ages 2–10</p>
+            <p className="eyebrow text-sage">Coloring &amp; activity books for ages 2–10</p>
             <h1 className="mt-3 font-display text-[30px] font-extrabold leading-[1.08] text-ink md:text-[54px]">
-              Grow a love of reading, one little story at a time
+              Grow a love of learning, one little page at a time
             </h1>
             <p className="mx-auto mt-4 max-w-md text-[16px] leading-relaxed text-body-soft md:mx-0 md:text-[19px]">
-              Warm, wholesome stories and activity books — thoughtfully leveled
-              for every stage from first words to first chapters.
+              Warm, wholesome coloring &amp; activity books — thoughtfully leveled
+              for every stage, from first words to confident readers.
             </p>
             <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:justify-center md:justify-start">
               <ButtonLink href="/books" variant="primary" size="lg">
@@ -172,8 +172,8 @@ export default function HomePage() {
                 body: "Every title is matched to what delights and stretches a child at each age — never too easy, never too much.",
               },
               {
-                title: "Gentle, wholesome themes",
-                body: "Friendship, feelings, nature, and bedtime calm — stories you'll feel good reading again and again.",
+                title: "Gentle, wholesome fun",
+                body: "Friendly animals, first words, counting, and true facts — learning that feels like play, page after page.",
               },
               {
                 title: "Free guides & printables",
@@ -204,7 +204,7 @@ export default function HomePage() {
               </h2>
               <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-white/90 md:text-[16px]">
                 Coloring pages and activity sheets to go with your favorite
-                stories — sent straight to your inbox.
+                Little Acre books — sent straight to your inbox.
               </p>
             </div>
             <EmailSignup variant="card" submitLabel="Send my free pack" />

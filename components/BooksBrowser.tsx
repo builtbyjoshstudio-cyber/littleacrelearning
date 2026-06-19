@@ -2,8 +2,8 @@
 
 import { useCallback, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import type { AgeBand, Book, Theme } from "@/lib/types";
-import { ageBands, themes } from "@/content/ageBands";
+import type { AgeBand, Book, Series } from "@/lib/types";
+import { ageBands, seriesList } from "@/content/ageBands";
 import { BookCard } from "./BookCard";
 
 const ageOptions: { value: AgeBand | "all"; label: string }[] = [
@@ -20,7 +20,7 @@ export function BooksBrowser({ books }: { books: Book[] }) {
   const params = useSearchParams();
 
   const activeAge = (params.get("age") as AgeBand | "all") || "all";
-  const activeTheme = (params.get("theme") as Theme | null) || null;
+  const activeSeries = (params.get("series") as Series | null) || null;
 
   const setParam = useCallback(
     (key: string, value: string | null) => {
@@ -38,9 +38,9 @@ export function BooksBrowser({ books }: { books: Book[] }) {
       books.filter(
         (b) =>
           (activeAge === "all" || b.ageBand === activeAge) &&
-          (!activeTheme || b.theme === activeTheme),
+          (!activeSeries || b.series === activeSeries),
       ),
-    [books, activeAge, activeTheme],
+    [books, activeAge, activeSeries],
   );
 
   // Group by band when no specific age is selected.
@@ -77,19 +77,19 @@ export function BooksBrowser({ books }: { books: Book[] }) {
           })}
         </div>
         <div className="no-scrollbar -mx-[18px] mt-2 flex gap-2 overflow-x-auto px-[18px] pb-1">
-          {themes.map((theme) => {
-            const selected = activeTheme === theme;
+          {seriesList.map((series) => {
+            const selected = activeSeries === series;
             return (
               <button
-                key={theme}
-                onClick={() => setParam("theme", selected ? null : theme)}
+                key={series}
+                onClick={() => setParam("series", selected ? null : series)}
                 className={`shrink-0 rounded-pill border px-4 py-2 font-sans text-[13px] font-bold transition-colors ${
                   selected
                     ? "border-forest bg-forest/10 text-forest"
                     : "border-[#e2dccb] bg-white text-muted"
                 }`}
               >
-                {theme}
+                {series}
               </button>
             );
           })}
@@ -128,28 +128,28 @@ export function BooksBrowser({ books }: { books: Book[] }) {
           </div>
 
           <h2 className="mt-8 font-display text-[15px] font-bold uppercase tracking-wider text-muted-soft">
-            Theme
+            Series
           </h2>
           <div className="mt-3 flex flex-wrap gap-2">
-            {themes.map((theme) => {
-              const selected = activeTheme === theme;
+            {seriesList.map((series) => {
+              const selected = activeSeries === series;
               return (
                 <button
-                  key={theme}
-                  onClick={() => setParam("theme", selected ? null : theme)}
+                  key={series}
+                  onClick={() => setParam("series", selected ? null : series)}
                   className={`rounded-pill border px-3.5 py-2 font-sans text-[13px] font-bold transition-colors ${
                     selected
                       ? "border-forest bg-forest/10 text-forest"
                       : "border-[#e2dccb] bg-white text-muted hover:border-forest/40"
                   }`}
                 >
-                  {theme}
+                  {series}
                 </button>
               );
             })}
           </div>
 
-          {(activeAge !== "all" || activeTheme) && (
+          {(activeAge !== "all" || activeSeries) && (
             <button
               onClick={() => router.replace("/books", { scroll: false })}
               className="mt-6 font-sans text-[13px] font-bold text-terracotta hover:underline"

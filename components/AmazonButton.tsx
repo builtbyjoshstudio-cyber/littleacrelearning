@@ -1,6 +1,6 @@
 /**
- * Distinct, recognizable "Find on Amazon" action — warm amber, clearly
- * separate from the forest add-to-cart primary.
+ * Distinct, recognizable "Find on Amazon" action — warm amber, the primary
+ * buy CTA on book pages.
  */
 export function AmazonButton({
   href,
