@@ -73,9 +73,14 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/15 pt-6 text-center text-[13px] text-paper/60 sm:flex-row sm:text-left">
-          <p>© {new Date().getFullYear()} Little Acre Learning. All rights reserved.</p>
-          <p>Made with care for little readers.</p>
+        <div className="mt-12 border-t border-white/15 pt-6">
+          <div className="flex flex-col items-center justify-between gap-3 text-center text-[13px] text-paper/60 sm:flex-row sm:text-left">
+            <p>© {new Date().getFullYear()} Built by Josh Studio LLC. All rights reserved.</p>
+            <p>Made with care for little readers.</p>
+          </div>
+          <p className="mt-3 text-center text-[12px] text-paper/45 sm:text-left">
+            Little Acre Learning is a brand of Built by Josh Studio LLC.
+          </p>
         </div>
       </div>
     </footer>
