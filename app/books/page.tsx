@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   title: "All books",
   description:
     "Browse Little Acre Learning coloring & activity books by age band and series — for children ages 2 to 10.",
+  alternates: { canonical: "/books/" },
+  openGraph: { url: "/books/", images: ["/og.png"] },
 };
 
 export default function BooksPage() {

@@ -8,6 +8,8 @@ import { AgeBadge } from "@/components/AgeBadge";
 import { CoverPlaceholder } from "@/components/CoverPlaceholder";
 import { AmazonButton } from "@/components/AmazonButton";
 import { BookCard } from "@/components/BookCard";
+import { JsonLd } from "@/components/JsonLd";
+import { bookSchema, breadcrumbSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return books.map((b) => ({ slug: b.slug }));
@@ -20,9 +22,25 @@ export function generateMetadata({
 }): Metadata {
   const book = getBook(params.slug);
   if (!book) return { title: "Book not found" };
+  const url = `/books/${book.slug}/`;
+  const ogTitle = `${book.title} — ${book.subtitle}`;
   return {
     title: book.title,
     description: book.shortDescription,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "website",
+      title: ogTitle,
+      description: book.shortDescription,
+      url,
+      images: [{ url: book.coverImage, alt: `${ogTitle} cover` }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: ogTitle,
+      description: book.shortDescription,
+      images: [book.coverImage],
+    },
   };
 }
 
@@ -43,6 +61,8 @@ export default function BookPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="shell py-8 md:py-12">
+      <JsonLd data={bookSchema(book)} />
+      <JsonLd data={breadcrumbSchema(book)} />
       {/* Breadcrumb */}
       <nav className="mb-6 flex flex-wrap items-center gap-1.5 text-[13px] text-muted">
         <Link href="/books" className="hover:text-forest">

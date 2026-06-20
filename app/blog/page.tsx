@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   title: "The Reading Nook — Blog",
   description:
     "Little ideas for big readers — read-aloud tips, book picks, and gentle advice for raising children who love to read.",
+  alternates: { canonical: "/blog/" },
+  openGraph: { url: "/blog/", images: ["/og.png"] },
 };
 
 function formatDate(iso: string) {

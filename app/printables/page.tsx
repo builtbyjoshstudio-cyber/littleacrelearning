@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   title: "Free Sample Packs",
   description:
     "Download a free printable sample pack from any Little Acre Learning book — coloring, tracing, and activity pages for ages 2–10, sent to your inbox.",
+  alternates: { canonical: "/printables/" },
+  openGraph: { url: "/printables/", images: ["/og.png"] },
 };
 
 export default function PrintablesPage() {

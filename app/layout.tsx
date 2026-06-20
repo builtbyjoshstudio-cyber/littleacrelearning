@@ -3,6 +3,8 @@ import { Baloo_2, Nunito } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationSchema } from "@/lib/schema";
 
 const baloo = Baloo_2({
   subsets: ["latin"],
@@ -57,6 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${baloo.variable} ${nunito.variable}`}>
       <body className="flex min-h-screen flex-col">
+        <JsonLd data={organizationSchema} />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

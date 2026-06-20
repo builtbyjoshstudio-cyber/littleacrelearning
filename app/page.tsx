@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ButtonLink } from "@/components/Button";
 import { BookCard } from "@/components/BookCard";
 import { Blob } from "@/components/Blob";
 import { ageBands } from "@/content/ageBands";
 import { getFeaturedBooks } from "@/content/books";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+  openGraph: { url: "/", images: ["/og.png"] },
+};
 
 export default function HomePage() {
   const featured = getFeaturedBooks();

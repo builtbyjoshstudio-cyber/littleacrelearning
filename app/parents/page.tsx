@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   title: "For Parents & Educators",
   description:
     "How Little Acre Learning books are leveled by age to support reading development from ages 2 to 10 — plus bulk orders for educators and libraries.",
+  alternates: { canonical: "/parents/" },
+  openGraph: { url: "/parents/", images: ["/og.png"] },
 };
 
 const features = [
