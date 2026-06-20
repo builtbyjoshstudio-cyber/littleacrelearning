@@ -35,6 +35,8 @@ export interface Book {
   coverImage: string; // /covers/<slug>.jpg
   /** Inline gradient used as a tint behind sample-page slots. */
   gradient: string;
+  /** Sample interior pages for the "Peek inside" gallery (omit if none yet). */
+  previewImages?: string[];
   featured?: boolean;
 }
 

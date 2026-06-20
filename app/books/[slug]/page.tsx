@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -66,19 +67,49 @@ export default function BookPage({ params }: { params: { slug: string } }) {
               rounded="rounded-card"
             />
           </div>
-          <div className="no-scrollbar mt-4 flex gap-3 overflow-x-auto pb-1 md:grid md:grid-cols-3 md:overflow-visible">
-            {[0, 1, 2].map((i) => (
-              <div
-                key={i}
-                className="aspect-[4/5] w-24 shrink-0 rounded-tile shadow-card md:w-auto"
-                style={{ backgroundImage: book.gradient, opacity: 0.55 }}
-                aria-label="Peek inside preview (coming soon)"
-              />
-            ))}
-          </div>
-          <p className="mt-2 text-center text-[12.5px] text-muted-soft md:text-left">
-            Peek inside — sample pages coming soon
-          </p>
+          {book.previewImages?.length ? (
+            <>
+              <div className="no-scrollbar mt-4 flex gap-3 overflow-x-auto pb-1 md:grid md:grid-cols-3 md:overflow-visible">
+                {book.previewImages.map((src, i) => (
+                  <a
+                    key={src}
+                    href={src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative aspect-[4/5] w-24 shrink-0 overflow-hidden rounded-tile bg-white shadow-card transition-shadow hover:shadow-lift md:w-auto"
+                    aria-label={`View sample page ${i + 1} of ${book.title}`}
+                  >
+                    <Image
+                      src={src}
+                      alt={`${book.title} sample page ${i + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 30vw, 130px"
+                      className="object-contain"
+                    />
+                  </a>
+                ))}
+              </div>
+              <p className="mt-2 text-center text-[12.5px] text-muted-soft md:text-left">
+                Peek inside — tap a page to view it larger
+              </p>
+            </>
+          ) : (
+            <>
+              <div className="no-scrollbar mt-4 flex gap-3 overflow-x-auto pb-1 md:grid md:grid-cols-3 md:overflow-visible">
+                {[0, 1, 2].map((i) => (
+                  <div
+                    key={i}
+                    className="aspect-[4/5] w-24 shrink-0 rounded-tile shadow-card md:w-auto"
+                    style={{ backgroundImage: book.gradient, opacity: 0.55 }}
+                    aria-label="Peek inside preview (coming soon)"
+                  />
+                ))}
+              </div>
+              <p className="mt-2 text-center text-[12.5px] text-muted-soft md:text-left">
+                Peek inside — sample pages coming soon
+              </p>
+            </>
+          )}
         </div>
 
         {/* Right: details */}

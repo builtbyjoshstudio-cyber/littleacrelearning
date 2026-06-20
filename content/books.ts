@@ -3,6 +3,10 @@ import type { AgeBand, Book, Series } from "@/lib/types";
 const FARM_GRADIENT = "linear-gradient(135deg,#5BC6BC,#2E9D93)";
 const DINO_GRADIENT = "linear-gradient(135deg,#7FC96B,#4E9A3E)";
 
+// Sample interior pages live at /previews/<slug>/<n>.jpg
+const previews = (slug: string, n: number): string[] =>
+  Array.from({ length: n }, (_, i) => `/previews/${slug}/${i + 1}.jpg`);
+
 export const books: Book[] = [
   // ───────────────────────── Farm Friends ─────────────────────────
   {
@@ -29,6 +33,7 @@ export const books: Book[] = [
     amazonUrl: null,
     coverImage: "/covers/farm-friends-2-4.jpg",
     gradient: FARM_GRADIENT,
+    previewImages: previews("farm-friends-2-4", 6),
     featured: true,
   },
   {
@@ -55,6 +60,7 @@ export const books: Book[] = [
     amazonUrl: "https://www.amazon.com/dp/B0H5RMDKMR",
     coverImage: "/covers/farm-friends-5-7.jpg",
     gradient: FARM_GRADIENT,
+    previewImages: previews("farm-friends-5-7", 6),
     featured: true,
   },
   {
@@ -81,6 +87,7 @@ export const books: Book[] = [
     amazonUrl: "https://www.amazon.com/dp/B0H5TNJ4NG",
     coverImage: "/covers/farm-friends-8-10.jpg",
     gradient: FARM_GRADIENT,
+    previewImages: previews("farm-friends-8-10", 6),
     featured: true,
   },
 
