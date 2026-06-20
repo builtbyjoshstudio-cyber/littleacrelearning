@@ -106,7 +106,7 @@ export const books: Book[] = [
     ],
     pages: 50,
     format: "Activity coloring book",
-    amazonUrl: null,
+    amazonUrl: "https://www.amazon.com/dp/B0H65VTNMG",
     coverImage: "/covers/dino-friends-2-4.jpg",
     gradient: DINO_GRADIENT,
     featured: true,
