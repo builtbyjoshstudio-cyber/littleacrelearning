@@ -136,6 +136,31 @@ export const books: Book[] = [
     coverImage: "/covers/dino-friends-5-7.jpg",
     gradient: DINO_GRADIENT,
   },
+  {
+    slug: "dino-friends-8-10",
+    title: "Little Acre Dino Friends",
+    subtitle: "Read · Think · Color",
+    series: "Dino Friends",
+    bookNumber: 3,
+    ageBand: "8-10",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Eighty detailed prehistoric scenes to color, each paired with a true fact and a find-and-color challenge.",
+    longDescription:
+      "Little Acre Dino Friends is back — now for big kids! Eighty richly detailed pen-and-ink scenes pair real prehistoric science with calm, focused coloring. Read a true Fact Zone, talk over a Think question, then hunt for hidden details with a Find & Color challenge.",
+    whatItTeaches: [
+      "80 detailed dinosaurs & prehistoric scenes to color",
+      "Fact Zone — a true science fact on every page",
+      "Think — a question to puzzle over together",
+      "Find & Color — hunt for hidden details",
+    ],
+    pages: 80,
+    format: "Coloring book",
+    amazonUrl: null,
+    coverImage: "/covers/dino-friends-8-10.jpg",
+    gradient: DINO_GRADIENT,
+  },
 ];
 
 export function getBook(slug: string): Book | undefined {
