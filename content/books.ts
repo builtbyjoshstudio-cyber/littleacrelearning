@@ -31,6 +31,8 @@ export const books: Book[] = [
     pages: 40,
     format: "Coloring book",
     amazonUrl: null,
+    freePackUrl:
+      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/33ca28e9-c433-470e-a12d-7fd1feae90e4",
     coverImage: "/covers/farm-friends-2-4.jpg",
     gradient: FARM_GRADIENT,
     previewImages: previews("farm-friends-2-4", 6),
@@ -58,6 +60,8 @@ export const books: Book[] = [
     pages: 40,
     format: "Activity book",
     amazonUrl: "https://www.amazon.com/dp/B0H5RMDKMR",
+    freePackUrl:
+      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/b9ab1e61-d641-4a83-ad0f-bc6fb25afbbc",
     coverImage: "/covers/farm-friends-5-7.jpg",
     gradient: FARM_GRADIENT,
     previewImages: previews("farm-friends-5-7", 6),
@@ -85,6 +89,8 @@ export const books: Book[] = [
     pages: 40,
     format: "Coloring book",
     amazonUrl: "https://www.amazon.com/dp/B0H5TNJ4NG",
+    freePackUrl:
+      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/3f0565aa-b96d-47bb-bd86-b856fafe7be8",
     coverImage: "/covers/farm-friends-8-10.jpg",
     gradient: FARM_GRADIENT,
     previewImages: previews("farm-friends-8-10", 6),
@@ -114,6 +120,8 @@ export const books: Book[] = [
     pages: 50,
     format: "Activity coloring book",
     amazonUrl: "https://www.amazon.com/dp/B0H65VTNMG",
+    freePackUrl:
+      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/2774a85f-8308-4095-8461-5baa6a2e835f",
     coverImage: "/covers/dino-friends-2-4.jpg",
     gradient: DINO_GRADIENT,
     previewImages: previews("dino-friends-2-4", 10),
@@ -141,6 +149,8 @@ export const books: Book[] = [
     pages: 70,
     format: "Activity book",
     amazonUrl: null,
+    freePackUrl:
+      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/95f6bf8a-f31e-4ae7-8bd8-6cac5b995699",
     coverImage: "/covers/dino-friends-5-7.jpg",
     gradient: DINO_GRADIENT,
     previewImages: previews("dino-friends-5-7", 10),
@@ -167,6 +177,8 @@ export const books: Book[] = [
     pages: 80,
     format: "Coloring book",
     amazonUrl: null,
+    freePackUrl:
+      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/de378864-8434-44ea-9d30-e6b55683ef47",
     coverImage: "/covers/dino-friends-8-10.jpg",
     gradient: DINO_GRADIENT,
     previewImages: previews("dino-friends-8-10", 10),

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ButtonLink } from "@/components/Button";
-import { EmailSignup } from "@/components/EmailSignup";
 import { BookCard } from "@/components/BookCard";
 import { Blob } from "@/components/Blob";
 import { ageBands } from "@/content/ageBands";
@@ -200,14 +199,18 @@ export default function HomePage() {
           <div className="relative grid items-center gap-7 md:grid-cols-2 md:gap-10">
             <div className="text-center md:text-left">
               <h2 className="font-display text-[24px] font-extrabold text-white md:text-[30px]">
-                Get the free printable pack
+                Free printable sample packs
               </h2>
               <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-white/90 md:text-[16px]">
-                Coloring pages and activity sheets to go with your favorite
-                Little Acre books — sent straight to your inbox.
+                Try real pages from inside any Little Acre book — free coloring,
+                tracing, and activity samples, sent straight to your inbox.
               </p>
             </div>
-            <EmailSignup variant="card" submitLabel="Send my free pack" />
+            <div className="flex justify-center md:justify-end">
+              <ButtonLink href="/printables" variant="primary" size="lg">
+                Browse the free packs
+              </ButtonLink>
+            </div>
           </div>
         </div>
       </section>

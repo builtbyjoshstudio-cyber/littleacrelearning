@@ -32,23 +32,14 @@ export interface Book {
   format: string;
   /** Amazon listing URL once live; null shows a "Coming soon" CTA. */
   amazonUrl: string | null;
+  /** Lemon Squeezy checkout for the free printable sample pack. */
+  freePackUrl?: string;
   coverImage: string; // /covers/<slug>.jpg
   /** Inline gradient used as a tint behind sample-page slots. */
   gradient: string;
   /** Sample interior pages for the "Peek inside" gallery (omit if none yet). */
   previewImages?: string[];
   featured?: boolean;
-}
-
-export interface Printable {
-  slug: string;
-  title: string;
-  ageBand: AgeBand;
-  pages: number;
-  gated: boolean;
-  fileUrl: string;
-  /** Inline gradient used for the document thumbnail tint. */
-  gradient: string;
 }
 
 export interface PostAuthor {
