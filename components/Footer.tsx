@@ -8,7 +8,6 @@ const columns = [
     links: [
       { href: "/books", label: "Books" },
       { href: "/books?age=2-4", label: "By age" },
-      { href: "/books", label: "Bundles" },
     ],
   },
   {
@@ -36,8 +35,12 @@ export function Footer() {
                 Little Acre Learning
               </span>
             </div>
+            {/* Tagline options — using #1; swap to taste:
+                1. Color, trace, learn — one little page at a time.
+                2. Little pages, big skills.
+                3. Activity books that grow with your child. */}
             <p className="mt-3 max-w-xs font-display text-[18px] font-bold text-paper/80">
-              Stories that take root.
+              Color, trace, learn — one little page at a time.
             </p>
             <div className="mt-5 max-w-sm">
               <EmailSignup

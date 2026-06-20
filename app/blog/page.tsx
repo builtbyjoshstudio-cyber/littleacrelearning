@@ -19,7 +19,7 @@ function formatDate(iso: string) {
 
 export default function BlogIndexPage() {
   const featured = getFeaturedPost();
-  const rest = posts.filter((p) => p.slug !== featured.slug);
+  const rest = featured ? posts.filter((p) => p.slug !== featured.slug) : [];
 
   return (
     <div className="shell py-10 md:py-14">
@@ -32,6 +32,28 @@ export default function BlogIndexPage() {
         </p>
       </header>
 
+      {!featured ? (
+        /* No posts yet — coming-soon state */
+        <div className="mx-auto mt-10 max-w-xl rounded-card-lg border border-[#ece6d8] bg-white p-8 text-center shadow-card md:mt-14 md:p-12">
+          <h2 className="font-display text-[24px] font-extrabold text-ink md:text-[28px]">
+            New posts are on the way
+          </h2>
+          <p className="mx-auto mt-3 max-w-md text-[15px] leading-relaxed text-body-soft md:text-[16px]">
+            We&apos;re putting together practical guides for parents, teachers,
+            and little learners. Check back soon — in the meantime, explore the
+            books and grab a free printable sample pack.
+          </p>
+          <div className="mt-6 flex flex-col items-stretch justify-center gap-3 sm:flex-row">
+            <ButtonLink href="/books" variant="primary" size="lg">
+              Browse the books
+            </ButtonLink>
+            <ButtonLink href="/printables" variant="outline" size="lg">
+              Free sample packs
+            </ButtonLink>
+          </div>
+        </div>
+      ) : (
+        <>
       {/* Featured post */}
       <Link
         href={`/blog/${featured.slug}`}
@@ -90,7 +112,7 @@ export default function BlogIndexPage() {
       {/* Bottom CTA */}
       <div className="mt-16 text-center">
         <p className="font-display text-[20px] font-extrabold text-ink">
-          Want stories to go with the tips?
+          Want activity books to go with the tips?
         </p>
         <div className="mt-4">
           <ButtonLink href="/books" variant="primary" size="lg">
@@ -98,6 +120,8 @@ export default function BlogIndexPage() {
           </ButtonLink>
         </div>
       </div>
+        </>
+      )}
     </div>
   );
 }

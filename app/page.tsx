@@ -176,7 +176,7 @@ export default function HomePage() {
               },
               {
                 title: "Free guides & printables",
-                body: "Coloring pages, activity sheets, and read-aloud tips to extend every book beyond the last page.",
+                body: "Coloring pages, activity sheets, and parent prompts to extend every book beyond the last page.",
               },
             ].map((item) => (
               <div key={item.title} className="text-center md:text-left">

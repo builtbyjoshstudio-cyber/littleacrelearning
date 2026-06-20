@@ -12,17 +12,17 @@ export const metadata: Metadata = {
 const features = [
   {
     title: "Leveled by age",
-    body: "Every title is sorted into one of three bands — Sprouts, Saplings, and Branches — so the words, length, and themes meet your child exactly where they are.",
+    body: "Every title is sorted into one of three bands — Sprouts, Saplings, and Branches — so the pages, prompts, and challenges meet your child exactly where they are.",
     band: ageBands[0],
   },
   {
-    title: "Gentle themes",
-    body: "Friendship, feelings, nature, and bedtime calm. Our stories handle big emotions with a soft touch, giving children a safe way to understand their world.",
+    title: "Wholesome & playful",
+    body: "Friendly animals, first words, counting, tracing, and true facts — wholesome pages that build real skills while they feel like play.",
     band: ageBands[1],
   },
   {
     title: "Free guides",
-    body: "Each book pairs with printable activities and read-aloud tips, so the learning continues long after the last page is turned.",
+    body: "Each book comes with a free printable sample pack and simple parent prompts, so the learning keeps going page after page.",
     band: ageBands[2],
   },
 ];
@@ -31,25 +31,25 @@ const develops = [
   {
     band: ageBands[0],
     points: [
-      "First vocabulary and naming",
-      "Page-turning and book handling",
-      "Comfort with bedtime routines",
+      "First words and animal sounds",
+      "Counting from 1 to 10",
+      "Crayon control and fine-motor skills",
     ],
   },
   {
     band: ageBands[1],
     points: [
-      "Early decoding and sight words",
-      "Story sequencing and prediction",
-      "Naming and managing feelings",
+      "Sentence tracing and handwriting",
+      "Reading short true facts aloud",
+      "New vocabulary and curiosity",
     ],
   },
   {
     band: ageBands[2],
     points: [
-      "Reading fluency and stamina",
-      "Inference and critical thinking",
-      "Empathy through richer characters",
+      "Focused, detailed coloring",
+      "Reading and recalling true facts",
+      "Observation with Find & Color challenges",
     ],
   },
 ];
@@ -120,7 +120,7 @@ export default function ParentsPage() {
             What each age band develops
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-[16px] leading-relaxed text-body-soft">
-            Our three bands map to the milestones early readers move through.
+            Our three bands match what children are working on at each stage.
             Use them as a starting point — every child grows at their own pace.
           </p>
         </div>
@@ -177,15 +177,18 @@ export default function ParentsPage() {
           <div className="md:flex md:items-center md:justify-between md:gap-10">
             <div className="md:max-w-2xl">
               <h2 className="font-display text-[24px] font-extrabold text-ink md:text-[32px]">
-                Educator &amp; library orders
+                Bulk &amp; wholesale orders
               </h2>
               <p className="mt-3 text-[16px] leading-relaxed text-body-soft md:text-[18px]">
-                Building a classroom library or stocking shelves? We offer bulk
-                pricing, leveled bundles by age band, and free educator guides for
-                schools, libraries, and reading programs.
+                Buying for a classroom, library, shop, or the whole family? Start
+                with our free printable sample packs, then get in touch about bulk
+                and wholesale orders for parents, teachers, and shops. Orders are
+                prepaid and made to order at wholesale pricing — email us and
+                we&apos;ll confirm the details for your order.
               </p>
             </div>
             <div className="mt-6 md:mt-0 md:shrink-0">
+              {/* TODO: confirm hello@littleacrelearning.com is a monitored inbox (audit Q6) */}
               <ButtonLink href="mailto:hello@littleacrelearning.com" variant="primary" size="lg">
                 Get in touch
               </ButtonLink>
