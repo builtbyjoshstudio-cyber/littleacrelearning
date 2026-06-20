@@ -31,6 +31,21 @@ export const metadata: Metadata = {
     description:
       "Coloring & activity books for ages 2–10. Learning that feels like play.",
     type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 400,
+        alt: "Little Acre Learning — coloring & activity books for ages 2–10",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Little Acre Learning",
+    description:
+      "Coloring & activity books for ages 2–10. Learning that feels like play.",
+    images: ["/og.png"],
   },
 };
 

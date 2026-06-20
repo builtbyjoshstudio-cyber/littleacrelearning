@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SproutGlyph } from "./Logo";
+import { LogoMarkReversed } from "./Logo";
 import { EmailSignup } from "./EmailSignup";
 
 const columns = [
@@ -29,7 +29,7 @@ export function Footer() {
           <div>
             <div className="flex items-center gap-2.5">
               <span className="flex h-9 w-9 items-center justify-center rounded-pill bg-white/10">
-                <SproutGlyph size={20} />
+                <LogoMarkReversed size={22} />
               </span>
               <span className="font-display text-[20px] font-extrabold text-paper">
                 Little Acre Learning

@@ -1,22 +1,59 @@
 import Link from "next/link";
 
-export function SproutGlyph({ size = 22 }: { size?: number }) {
+/**
+ * Finalized brand sprout mark (assets/mark.svg) — colored glyph for light
+ * surfaces (nav, inline UI). Inlined so it scales crisply and recolors.
+ */
+export function LogoMark({
+  size = 36,
+  className = "",
+}: {
+  size?: number;
+  className?: string;
+}) {
   return (
     <svg
       width={size}
       height={size}
-      viewBox="0 0 24 24"
+      viewBox="0 0 120 120"
       fill="none"
+      className={className}
       aria-hidden="true"
     >
-      <path
-        d="M12 21c0-5 0-8-3.5-10.5M12 21c0-6 1-9 5-11M12 21v-5"
-        stroke="#FBF7F0"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path d="M8.5 10.5C6 9 4.5 9.5 4 10c.5 2 2 3.5 4.5 3" fill="#88A98C" />
-      <path d="M17 10C19.5 8 21 8.5 21.5 9c-.5 2.2-2.2 3.8-4.9 3.2" fill="#88A98C" />
+      <path d="M16 96c10-9 24-13 44-13s34 4 44 13" stroke="#46604E" strokeWidth="7" strokeLinecap="round" />
+      <path d="M60 88V46" stroke="#46604E" strokeWidth="7" strokeLinecap="round" />
+      <path d="M60 64C50 64 40 58 35 47c12-4 22-1 25 9" fill="#88A98C" />
+      <path d="M60 56C72 54 83 46 87 33c-13-3-24 2-27 14" fill="#46604E" />
+      <circle cx="60" cy="40" r="6" fill="#B5654A" />
+    </svg>
+  );
+}
+
+/**
+ * Reversed mark (assets/mark-reversed.svg) — cream/sand glyph for dark/forest
+ * surfaces (footer).
+ */
+export function LogoMarkReversed({
+  size = 22,
+  className = "",
+}: {
+  size?: number;
+  className?: string;
+}) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 120 120"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M16 96c10-9 24-13 44-13s34 4 44 13" stroke="#F3ECDD" strokeWidth="7" strokeLinecap="round" />
+      <path d="M60 88V46" stroke="#F3ECDD" strokeWidth="7" strokeLinecap="round" />
+      <path d="M60 64C50 64 40 58 35 47c12-4 22-1 25 9" fill="#DDB48A" />
+      <path d="M60 56C72 54 83 46 87 33c-13-3-24 2-27 14" fill="#F3ECDD" />
+      <circle cx="60" cy="40" r="6" fill="#DDB48A" />
     </svg>
   );
 }
@@ -28,8 +65,7 @@ export function Logo({
   size?: "sm" | "md";
   className?: string;
 }) {
-  const circle = size === "sm" ? "h-[30px] w-[30px]" : "h-9 w-9";
-  const glyph = size === "sm" ? 18 : 22;
+  const mark = size === "sm" ? 30 : 36;
   const word = size === "sm" ? "text-[18px]" : "text-[21px]";
 
   return (
@@ -38,11 +74,7 @@ export function Logo({
       className={`flex items-center gap-2.5 ${className}`}
       aria-label="Little Acre Learning — home"
     >
-      <span
-        className={`flex shrink-0 items-center justify-center rounded-pill bg-forest ${circle}`}
-      >
-        <SproutGlyph size={glyph} />
-      </span>
+      <LogoMark size={mark} className="shrink-0" />
       <span
         className={`font-display font-extrabold text-forest tracking-[-0.01em] ${word}`}
       >
