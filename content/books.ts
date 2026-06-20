@@ -116,6 +116,7 @@ export const books: Book[] = [
     amazonUrl: "https://www.amazon.com/dp/B0H65VTNMG",
     coverImage: "/covers/dino-friends-2-4.jpg",
     gradient: DINO_GRADIENT,
+    previewImages: previews("dino-friends-2-4", 10),
     featured: true,
   },
   {
@@ -142,6 +143,7 @@ export const books: Book[] = [
     amazonUrl: null,
     coverImage: "/covers/dino-friends-5-7.jpg",
     gradient: DINO_GRADIENT,
+    previewImages: previews("dino-friends-5-7", 10),
   },
   {
     slug: "dino-friends-8-10",
@@ -167,6 +169,7 @@ export const books: Book[] = [
     amazonUrl: null,
     coverImage: "/covers/dino-friends-8-10.jpg",
     gradient: DINO_GRADIENT,
+    previewImages: previews("dino-friends-8-10", 10),
   },
 ];
 
