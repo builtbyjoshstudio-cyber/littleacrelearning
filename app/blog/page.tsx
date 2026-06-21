@@ -6,7 +6,7 @@ import { ButtonLink } from "@/components/Button";
 export const metadata: Metadata = {
   title: "The Reading Nook — Blog",
   description:
-    "Little ideas for big readers — read-aloud tips, book picks, and gentle advice for raising children who love to read.",
+    "Practical tips and activity ideas for parents and educators using Little Acre Learning's coloring & activity books for ages 2–10 — new guides coming soon.",
   alternates: { canonical: "/blog/" },
   openGraph: { url: "/blog/", images: ["/og.png"] },
 };

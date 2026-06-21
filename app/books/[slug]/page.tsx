@@ -23,9 +23,18 @@ export function generateMetadata({
   const book = getBook(params.slug);
   if (!book) return { title: "Book not found" };
   const url = `/books/${book.slug}/`;
+  const band = getBandByAge(book.ageBand);
+  // Unique, descriptive <title> per book: series · "Ages X–Y" · skill descriptor
+  // (the real subtitle, stripped of its "A …Coloring/Activity Book" wrapper).
+  // This distinguishes the 3 same-series books, which otherwise share a title.
+  const descriptor = book.subtitle
+    .replace(/^A\s+/i, "")
+    .replace(/\s+(Activity\s+)?Coloring\s+Book$/i, "")
+    .replace(/\s+Activity\s+Book$/i, "")
+    .trim();
   const ogTitle = `${book.title} — ${book.subtitle}`;
   return {
-    title: book.title,
+    title: `${book.title} · ${band.ages} ${descriptor}`,
     description: book.shortDescription,
     alternates: { canonical: url },
     openGraph: {
