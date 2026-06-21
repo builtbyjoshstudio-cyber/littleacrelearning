@@ -6,7 +6,7 @@ import { ageBands } from "@/content/ageBands";
 export const metadata: Metadata = {
   title: "For Parents & Educators",
   description:
-    "How Little Acre Learning books are leveled by age to support reading development from ages 2 to 10 — plus bulk orders for educators and libraries.",
+    "Coloring & activity books leveled by age 2–10 — from counting and tracing to reading and detailed coloring. Bulk & wholesale for parents, teachers, and shops.",
   alternates: { canonical: "/parents/" },
   openGraph: { url: "/parents/", images: ["/og.png"] },
 };
