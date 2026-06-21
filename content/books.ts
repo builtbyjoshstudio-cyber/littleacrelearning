@@ -176,7 +176,7 @@ export const books: Book[] = [
     ],
     pages: 80,
     format: "Coloring book",
-    amazonUrl: null,
+    amazonUrl: "https://www.amazon.com/dp/B0H66G7FB7",
     freePackUrl:
       "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/de378864-8434-44ea-9d30-e6b55683ef47",
     coverImage: "/covers/dino-friends-8-10.jpg",
