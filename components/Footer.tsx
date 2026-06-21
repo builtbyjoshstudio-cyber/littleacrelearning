@@ -79,7 +79,16 @@ export function Footer() {
             <p>Made with care for little readers.</p>
           </div>
           <p className="mt-3 text-center text-[12px] text-paper/45 sm:text-left">
-            Little Acre Learning is a brand of Built by Josh Studio LLC.
+            Little Acre Learning is a brand of{" "}
+            <a
+              href="https://builtbyjoshstudio.com"
+              target="_blank"
+              rel="noopener"
+              className="underline decoration-paper/30 underline-offset-2 transition-colors hover:text-paper/70"
+            >
+              Built by Josh Studio LLC
+            </a>
+            .
           </p>
         </div>
       </div>
