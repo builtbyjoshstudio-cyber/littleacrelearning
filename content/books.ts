@@ -208,6 +208,8 @@ export const books: Book[] = [
     pages: 50,
     format: "Coloring book",
     amazonUrl: null,
+    freePackUrl:
+      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/94d8fc05-264a-416b-8792-d690fe3037ac",
     coverImage: "/covers/ocean-friends-2-4.jpg",
     gradient: OCEAN_GRADIENT,
     previewImages: previews("ocean-friends-2-4", 10),
@@ -234,6 +236,8 @@ export const books: Book[] = [
     pages: 70,
     format: "Activity book",
     amazonUrl: null,
+    freePackUrl:
+      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/f1e4ed0e-b525-4c39-95dc-5a5fff870368",
     coverImage: "/covers/ocean-friends-5-7.jpg",
     gradient: OCEAN_GRADIENT,
     previewImages: previews("ocean-friends-5-7", 10),
@@ -260,6 +264,8 @@ export const books: Book[] = [
     pages: 80,
     format: "Coloring book",
     amazonUrl: null,
+    freePackUrl:
+      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/29238fd0-ac7b-4daf-968b-61751e109bd6",
     coverImage: "/covers/ocean-friends-8-10.jpg",
     gradient: OCEAN_GRADIENT,
     previewImages: previews("ocean-friends-8-10", 10),
