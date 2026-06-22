@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/Button";
 import { BookCard } from "@/components/BookCard";
@@ -26,7 +27,7 @@ export default function HomePage() {
           color="#F8EBCF"
           opacity={0.6}
         />
-        <div className="shell grid items-center gap-10 py-14 md:grid-cols-2 md:gap-12 md:py-20">
+        <div className="shell grid grid-cols-1 items-center gap-10 py-14 md:grid-cols-2 md:gap-12 md:py-20">
           <div className="text-center md:text-left">
             <p className="eyebrow text-sage">Coloring &amp; activity books for ages 2–10</p>
             <h1 className="mt-3 font-display text-[30px] font-extrabold leading-[1.08] text-ink md:text-[54px]">
@@ -46,18 +47,42 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Illustration slot */}
+          {/* Book arc */}
           <div className="relative">
-            <div
-              className="mx-auto aspect-[4/3] w-full max-w-[480px] rounded-card-lg shadow-hero"
-              style={{ backgroundImage: "linear-gradient(135deg,#9CB87F,#46604E)" }}
-            >
-              <div className="flex h-full w-full flex-col items-center justify-center p-8 text-center">
-                <span className="font-display text-[22px] font-extrabold text-white/95">
-                  Illustration coming soon
+            <div className="relative mx-auto flex h-[280px] items-center justify-center sm:h-[340px] md:h-[430px]">
+              {/* Mint backdrop panel */}
+              <div className="absolute left-1/2 top-[12px] h-[210px] w-[90%] max-w-[300px] -translate-x-1/2 rounded-[28px] bg-[#E8EFDF] sm:h-[260px] sm:max-w-[360px] md:top-[18px] md:h-[380px] md:max-w-[430px] md:rounded-[32px]" />
+              {/* Three covers in a gentle arc — priority (above the fold), never lazy */}
+              <div className="relative flex items-center justify-center">
+                <span className="relative -mr-[16px] block h-[140px] w-[107px] translate-y-4 -rotate-6 overflow-hidden rounded-[9px] shadow-[0_18px_32px_rgba(46,58,48,0.24)] sm:-mr-[20px] sm:h-[176px] sm:w-[135px] md:-mr-[26px] md:h-[268px] md:w-[206px] md:translate-y-5 md:rounded-[11px]">
+                  <Image
+                    src="/covers/hero/ocean-friends-2-4.jpg"
+                    alt="Ocean Friends, ages 2–4"
+                    fill
+                    sizes="(max-width: 768px) 135px, 206px"
+                    priority
+                    className="object-cover"
+                  />
                 </span>
-                <span className="mt-1 text-[14px] text-white/70">
-                  Cover art &amp; hero art drop in here
+                <span className="relative z-[2] block h-[156px] w-[120px] overflow-hidden rounded-[10px] shadow-[0_24px_42px_rgba(46,58,48,0.30)] sm:h-[192px] sm:w-[147px] md:h-[294px] md:w-[226px] md:rounded-[12px]">
+                  <Image
+                    src="/covers/hero/farm-friends-8-10.jpg"
+                    alt="Farm Friends, ages 8–10"
+                    fill
+                    sizes="(max-width: 768px) 147px, 226px"
+                    priority
+                    className="object-cover"
+                  />
+                </span>
+                <span className="relative -ml-[16px] block h-[140px] w-[107px] translate-y-4 rotate-6 overflow-hidden rounded-[9px] shadow-[0_18px_32px_rgba(46,58,48,0.24)] sm:-ml-[20px] sm:h-[176px] sm:w-[135px] md:-ml-[26px] md:h-[268px] md:w-[206px] md:translate-y-5 md:rounded-[11px]">
+                  <Image
+                    src="/covers/hero/dino-friends-5-7.jpg"
+                    alt="Dino Friends, ages 5–7"
+                    fill
+                    sizes="(max-width: 768px) 135px, 206px"
+                    priority
+                    className="object-cover"
+                  />
                 </span>
               </div>
             </div>
