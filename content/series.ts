@@ -1,0 +1,51 @@
+import type { Series, SeriesMeta } from "@/lib/types";
+import { FARM_GRADIENT, DINO_GRADIENT, OCEAN_GRADIENT } from "./books";
+
+// Plan B: when per-series landing pages exist, swap this to `/series/${slug}/`.
+const seriesHref = (series: Series) =>
+  `/books?series=${encodeURIComponent(series)}`;
+
+export const seriesMetaList: SeriesMeta[] = [
+  {
+    series: "Farm Friends",
+    slug: "farm-friends",
+    name: "Farm Friends",
+    tagline:
+      "Friendly farm animals to color and learn about — a book for every stage, ages 2–10.",
+    gradient: FARM_GRADIENT,
+    accent: "#2E9D93",
+    href: seriesHref("Farm Friends"),
+  },
+  {
+    series: "Dino Friends",
+    slug: "dino-friends",
+    name: "Dino Friends",
+    tagline:
+      "Dinosaurs to color and learn about — a book for every stage, ages 2–10.",
+    gradient: DINO_GRADIENT,
+    accent: "#4E9A3E",
+    href: seriesHref("Dino Friends"),
+  },
+  {
+    series: "Ocean Friends",
+    slug: "ocean-friends",
+    name: "Ocean Friends",
+    tagline:
+      "Sea creatures to color and learn about — a book for every stage, ages 2–10.",
+    gradient: OCEAN_GRADIENT,
+    accent: "#1E76A6",
+    href: seriesHref("Ocean Friends"),
+  },
+];
+
+const bySeries: Record<Series, SeriesMeta> = seriesMetaList.reduce(
+  (acc, s) => {
+    acc[s.series] = s;
+    return acc;
+  },
+  {} as Record<Series, SeriesMeta>,
+);
+
+export function getSeriesMeta(series: Series): SeriesMeta {
+  return bySeries[series];
+}

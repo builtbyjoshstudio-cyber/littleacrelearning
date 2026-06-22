@@ -3,7 +3,9 @@ import Link from "next/link";
 import { ButtonLink } from "@/components/Button";
 import { BookCard } from "@/components/BookCard";
 import { Blob } from "@/components/Blob";
+import { SeriesCard } from "@/components/SeriesCard";
 import { ageBands } from "@/content/ageBands";
+import { seriesMetaList } from "@/content/series";
 import { getFeaturedBooks } from "@/content/books";
 
 export const metadata: Metadata = {
@@ -126,6 +128,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ───────────── Explore the series ───────────── */}
+      <section className="shell py-8 md:py-12">
+        <div className="text-center">
+          <p className="eyebrow text-sage">By series</p>
+          <h2 className="mt-2 font-display text-[24px] font-bold text-ink md:text-[30px]">
+            Explore the series
+          </h2>
+        </div>
+        <div className="mt-9 grid gap-5 md:grid-cols-3 md:gap-6">
+          {seriesMetaList.map((meta) => (
+            <SeriesCard key={meta.series} meta={meta} />
+          ))}
+        </div>
+      </section>
+
       {/* ───────────── New this season ───────────── */}
       <section className="shell py-8 md:py-12">
         <div className="flex items-end justify-between">
@@ -144,7 +161,7 @@ export default function HomePage() {
         </div>
 
         {/* Desktop grid / mobile horizontal scroll */}
-        <div className="no-scrollbar mt-7 flex snap-x gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-4 md:gap-6 md:overflow-visible md:pb-0">
+        <div className="no-scrollbar mt-7 flex snap-x gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0">
           {featured.map((book) => (
             <BookCard
               key={book.slug}

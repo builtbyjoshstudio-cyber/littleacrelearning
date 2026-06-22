@@ -1,8 +1,8 @@
 import type { AgeBand, Book, Series } from "@/lib/types";
 
-const FARM_GRADIENT = "linear-gradient(135deg,#5BC6BC,#2E9D93)";
-const DINO_GRADIENT = "linear-gradient(135deg,#7FC96B,#4E9A3E)";
-const OCEAN_GRADIENT = "linear-gradient(135deg,#45A8D6,#1E76A6)";
+export const FARM_GRADIENT = "linear-gradient(135deg,#5BC6BC,#2E9D93)";
+export const DINO_GRADIENT = "linear-gradient(135deg,#7FC96B,#4E9A3E)";
+export const OCEAN_GRADIENT = "linear-gradient(135deg,#45A8D6,#1E76A6)";
 
 // Sample interior pages live at /previews/<slug>/<n>.jpg
 const previews = (slug: string, n: number): string[] =>
@@ -183,6 +183,7 @@ export const books: Book[] = [
     coverImage: "/covers/dino-friends-8-10.jpg",
     gradient: DINO_GRADIENT,
     previewImages: previews("dino-friends-8-10", 10),
+    featured: true,
   },
 
   // ───────────────────────── Ocean Friends ─────────────────────────
@@ -213,6 +214,7 @@ export const books: Book[] = [
     coverImage: "/covers/ocean-friends-2-4.jpg",
     gradient: OCEAN_GRADIENT,
     previewImages: previews("ocean-friends-2-4", 10),
+    featured: true,
   },
   {
     slug: "ocean-friends-5-7",

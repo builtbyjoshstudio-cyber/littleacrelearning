@@ -15,6 +15,16 @@ export interface AgeBandMeta {
   text: string;
 }
 
+export interface SeriesMeta {
+  series: Series;
+  slug: string; // for the future /series/<slug>/ landing page (Plan B)
+  name: string; // short display name, e.g. "Farm Friends"
+  tagline: string;
+  gradient: string;
+  accent: string; // solid accent color for text/badge on the card
+  href: string;
+}
+
 export interface Book {
   slug: string;
   title: string; // series title as shown on the cover
