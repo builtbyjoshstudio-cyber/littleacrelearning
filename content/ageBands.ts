@@ -57,4 +57,4 @@ export function getBandById(id: BandId): AgeBandMeta {
   return byId[id];
 }
 
-export const seriesList: Series[] = ["Farm Friends", "Dino Friends"];
+export const seriesList: Series[] = ["Farm Friends", "Dino Friends", "Ocean Friends"];

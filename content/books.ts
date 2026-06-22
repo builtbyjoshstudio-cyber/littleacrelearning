@@ -2,6 +2,7 @@ import type { AgeBand, Book, Series } from "@/lib/types";
 
 const FARM_GRADIENT = "linear-gradient(135deg,#5BC6BC,#2E9D93)";
 const DINO_GRADIENT = "linear-gradient(135deg,#7FC96B,#4E9A3E)";
+const OCEAN_GRADIENT = "linear-gradient(135deg,#45A8D6,#1E76A6)";
 
 // Sample interior pages live at /previews/<slug>/<n>.jpg
 const previews = (slug: string, n: number): string[] =>
@@ -182,6 +183,86 @@ export const books: Book[] = [
     coverImage: "/covers/dino-friends-8-10.jpg",
     gradient: DINO_GRADIENT,
     previewImages: previews("dino-friends-8-10", 10),
+  },
+
+  // ───────────────────────── Ocean Friends ─────────────────────────
+  {
+    slug: "ocean-friends-2-4",
+    title: "Little Acre Ocean Friends",
+    subtitle: "A Speech & Counting Coloring Book",
+    series: "Ocean Friends",
+    bookNumber: 1,
+    ageBand: "2-4",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Color 50 friendly sea animals, count along, and make splashy ocean sounds — made for little hands.",
+    longDescription:
+      "Dive into a whole ocean of friendly sea animals! Blow bubbles like the clownfish, wiggle your arms like the octopus, and spout water high like the whale. Every big, bold page has a splashy ocean sound to make and something fun to count together.",
+    whatItTeaches: [
+      "50 big, bold sea animals to color",
+      "Count fins, bubbles & shells from 1 to 5",
+      "Splashy ocean sounds & first words",
+      "Wiggle, float & stretch along the way",
+    ],
+    pages: 50,
+    format: "Coloring book",
+    amazonUrl: null,
+    coverImage: "/covers/ocean-friends-2-4.jpg",
+    gradient: OCEAN_GRADIENT,
+    previewImages: previews("ocean-friends-2-4", 10),
+  },
+  {
+    slug: "ocean-friends-5-7",
+    title: "Little Acre Ocean Friends",
+    subtitle: "A Trace, Read & Learn Activity Book",
+    series: "Ocean Friends",
+    bookNumber: 2,
+    ageBand: "5-7",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Trace a sentence and read a true ocean fact on every page while coloring 70 sea animals from reef to deep sea.",
+    longDescription:
+      "Dive into a whole world of sea animals — from the sunlit reef to the deep, dark ocean! Color the gentle whale shark, the eight-armed octopus, and the glowing anglerfish. Every page has a sentence to trace and a true ocean fact to read together.",
+    whatItTeaches: [
+      "70 big, bold sea animals to color",
+      "Trace a sentence on every page",
+      "A true ocean fact to read & learn",
+      "Animals of reef, open sea & the deep",
+    ],
+    pages: 70,
+    format: "Activity book",
+    amazonUrl: null,
+    coverImage: "/covers/ocean-friends-5-7.jpg",
+    gradient: OCEAN_GRADIENT,
+    previewImages: previews("ocean-friends-5-7", 10),
+  },
+  {
+    slug: "ocean-friends-8-10",
+    title: "Little Acre Ocean Friends",
+    subtitle: "Read · Think · Color",
+    series: "Ocean Friends",
+    bookNumber: 3,
+    ageBand: "8-10",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Eighty detailed ocean scenes to color, each paired with a true fact and a find-and-color challenge.",
+    longDescription:
+      "Dive deep into the ocean's most amazing animals — the mighty blue whale, the mysterious colossal squid, and the strange anglerfish. Every detailed page pairs a true ocean fact with a question to think about as you color.",
+    whatItTeaches: [
+      "80 detailed sea creatures to color",
+      "Fact Zone — a true ocean fact on every page",
+      "Think — a question to puzzle over together",
+      "Find & Color — hunt for hidden details",
+    ],
+    pages: 80,
+    format: "Coloring book",
+    amazonUrl: null,
+    coverImage: "/covers/ocean-friends-8-10.jpg",
+    gradient: OCEAN_GRADIENT,
+    previewImages: previews("ocean-friends-8-10", 10),
   },
 ];
 
