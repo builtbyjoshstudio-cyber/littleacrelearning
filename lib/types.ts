@@ -23,6 +23,12 @@ export interface SeriesMeta {
   gradient: string;
   accent: string; // solid accent color for text/badge on the card
   href: string;
+  /**
+   * Amazon "Series" page (lists all age tiers together). Stored for the Plan B
+   * per-series landing page's "shop the series" CTA — NOT surfaced anywhere yet.
+   * Verify it's live before surfacing.
+   */
+  amazonSeriesUrl?: string;
 }
 
 export interface Book {
