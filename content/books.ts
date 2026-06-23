@@ -265,7 +265,7 @@ export const books: Book[] = [
     ],
     pages: 80,
     format: "Coloring book",
-    amazonUrl: null,
+    amazonUrl: "https://www.amazon.com/dp/B0H6CCP4PZ",
     freePackUrl:
       "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/29238fd0-ac7b-4daf-968b-61751e109bd6",
     coverImage: "/covers/ocean-friends-8-10.jpg",
