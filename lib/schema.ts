@@ -1,4 +1,4 @@
-import type { Book } from "./types";
+import type { Book, Post } from "./types";
 
 export const SITE_URL = "https://littleacrelearning.com";
 export const ORG_ID = `${SITE_URL}/#organization`;
@@ -91,6 +91,51 @@ export function breadcrumbSchema(book: Book) {
         name: `${book.title} — ${book.subtitle}`,
         item: url,
       },
+    ],
+  };
+}
+
+/** BlogPosting entity for a blog article. Publisher/author = the brand. */
+export function blogPostingSchema(post: Post) {
+  const url = `${SITE_URL}/blog/${post.slug}/`;
+  const org = {
+    "@type": "Organization",
+    "@id": ORG_ID,
+    name: "Little Acre Learning",
+  };
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#blogposting`,
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    inLanguage: "en",
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    // Posts use a gradient banner (no cover image yet); fall back to the site OG.
+    image: `${SITE_URL}${post.coverImage ?? "/og.png"}`,
+    author: org,
+    publisher: org,
+  };
+}
+
+/** Home → The Reading Nook → [Post] breadcrumb trail for a blog article. */
+export function blogBreadcrumbSchema(post: Post) {
+  const url = `${SITE_URL}/blog/${post.slug}/`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "The Reading Nook",
+        item: `${SITE_URL}/blog/`,
+      },
+      { "@type": "ListItem", position: 3, name: post.title, item: url },
     ],
   };
 }

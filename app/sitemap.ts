@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
 import { books } from "@/content/books";
+import { posts } from "@/content/posts";
 
 const BASE = "https://littleacrelearning.com";
 
 // Generated from the real route list so it stays accurate as the catalog
-// changes. Static-export-safe (evaluated at build time). Excludes /404 and the
-// removed /blog/[slug] route (no posts yet). URLs use trailing slashes to match
-// next.config trailingSlash: true.
+// changes. Static-export-safe (evaluated at build time). Excludes /404. Blog
+// posts are included once content/posts.ts is non-empty. URLs use trailing
+// slashes to match next.config trailingSlash: true.
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
@@ -42,5 +43,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.4,
     },
+    ...posts.map((p) => ({
+      url: `${BASE}/blog/${p.slug}/`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    })),
   ];
 }
