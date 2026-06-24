@@ -28,7 +28,7 @@ Four series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Ocea
 
 - ✅ Live: Farm 5-7 `B0H5RMDKMR`, Farm 8-10 `B0H5TNJ4NG`, Dino 2-4 `B0H65VTNMG`, Dino 5-7 `B0H67G4XNJ`, Dino 8-10 `B0H66G7FB7`, Ocean 8-10 `B0H6CCP4PZ`
 - ⏳ Coming soon (no live Amazon link yet): **Farm 2-4, Ocean 2-4, Ocean 5-7, Safari 2-4, Safari 5-7, Safari 8-10**
-- **Free packs:** the 9 Farm/Dino/Ocean books each have a `freePackUrl` (Lemon Squeezy free product, store `tynkrtoolsco.lemonsqueezy.com`). The **3 Safari books have no `freePackUrl` yet** — Josh is generating the Lemon Squeezy links; wire them when provided (until then no free-pack link/`/printables` listing for Safari).
+- **Free packs:** all 12 books have a `freePackUrl` (Lemon Squeezy free product, store `tynkrtoolsco.lemonsqueezy.com`). Josh keeps the canonical link list in a "Lemon Squeezy Product links" spreadsheet (sheet "Little Acre Learning Previews").
 - **No hardcoded prices** — Amazon is the source of truth (`book.price` stays `null`; cards show "Available on Amazon →" or "Coming soon"). No cart/checkout on-site.
 
 ## 3. Stack, hosting, deploy
@@ -95,7 +95,6 @@ Hero (book arc) → "Find the right shelf" (3 age-band cards → `/books?age=`) 
 ## 10. Outstanding work
 
 - **6 Amazon links pending:** Farm 2-4, Ocean 2-4, Ocean 5-7, Safari 2-4, Safari 5-7, Safari 8-10 — wire each as it goes live (also clears the Book-schema `sameAs` TODOs).
-- **3 Safari free-pack (Lemon Squeezy) links pending:** Safari 2-4/5-7/8-10 have no `freePackUrl` yet (Josh is generating them). Add `freePackUrl` per book when provided → re-enables the "free sample pack" link + `/printables` listing for Safari.
 - **Plan B — per-series landing pages** (`/series/<slug>/`): one indexable page per series listing its 3 tiers, with `CollectionPage`+`ItemList` JSON-LD, `app/sitemap.ts` additions, and book→series back-links so they aren't orphaned. Series cards' `href` is the single swap point. A "shop the whole series on Amazon" CTA can use `SeriesMeta.amazonSeriesUrl` (Dino = `amazon.com/dp/B0H6C5GSF1`, stored, verify live first; Farm/Ocean series URLs TBD). Wants the Ocean line fully live on Amazon first.
 - **JSON-LD TODOs** (`lib/schema.ts`): Organization `sameAs: []` (need Amazon brand page + social profile URLs); ISBNs (none in repo).
 - **`/books` catalog is client-rendered** (`BooksBrowser`, `?age=`/`?series=` filters) → empty to non-JS crawlers. SEO improvement opportunity.

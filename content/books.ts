@@ -297,6 +297,8 @@ export const books: Book[] = [
     pages: 50,
     format: "Coloring book",
     amazonUrl: null,
+    freePackUrl:
+      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/de1af5c6-bd5f-4d8a-86cb-2744c3a42a9c",
     coverImage: "/covers/safari-friends-2-4.jpg",
     gradient: SAFARI_GRADIENT,
     previewImages: previews("safari-friends-2-4", 10),
@@ -324,6 +326,8 @@ export const books: Book[] = [
     pages: 70,
     format: "Activity book",
     amazonUrl: null,
+    freePackUrl:
+      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/2d54745e-fc85-4c1e-b0fd-93450bfa6e57",
     coverImage: "/covers/safari-friends-5-7.jpg",
     gradient: SAFARI_GRADIENT,
     previewImages: previews("safari-friends-5-7", 10),
@@ -351,6 +355,8 @@ export const books: Book[] = [
     pages: 80,
     format: "Coloring book",
     amazonUrl: null,
+    freePackUrl:
+      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/26b8eb7d-24e0-41f6-884a-9958e610122a",
     coverImage: "/covers/safari-friends-8-10.jpg",
     gradient: SAFARI_GRADIENT,
     previewImages: previews("safari-friends-8-10", 10),
