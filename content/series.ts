@@ -42,6 +42,8 @@ export const seriesMetaList: SeriesMeta[] = [
     gradient: OCEAN_GRADIENT,
     accent: "#1E76A6",
     href: seriesHref("Ocean Friends"),
+    // Plan B: Amazon series page — stored, not surfaced yet.
+    amazonSeriesUrl: "https://www.amazon.com/dp/B0H6CB7SS8",
   },
   {
     series: "Safari Friends",

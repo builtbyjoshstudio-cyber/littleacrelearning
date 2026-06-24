@@ -95,7 +95,7 @@ Hero (book arc) → "Find the right shelf" (3 age-band cards → `/books?age=`) 
 ## 10. Outstanding work
 
 - **5 Amazon links pending:** Farm 2-4, Ocean 2-4, Ocean 5-7, Safari 2-4, Safari 8-10 — wire each as it goes live (also clears the Book-schema `sameAs` TODOs).
-- **Plan B — per-series landing pages** (`/series/<slug>/`): one indexable page per series listing its 3 tiers, with `CollectionPage`+`ItemList` JSON-LD, `app/sitemap.ts` additions, and book→series back-links so they aren't orphaned. Series cards' `href` is the single swap point. A "shop the whole series on Amazon" CTA can use `SeriesMeta.amazonSeriesUrl` (Dino = `amazon.com/dp/B0H6C5GSF1`, Safari = `amazon.com/dp/B0H6H9QT1F`, both stored, not surfaced yet; Farm/Ocean series URLs TBD). Wants the Ocean line fully live on Amazon first.
+- **Plan B — per-series landing pages** (`/series/<slug>/`): one indexable page per series listing its 3 tiers, with `CollectionPage`+`ItemList` JSON-LD, `app/sitemap.ts` additions, and book→series back-links so they aren't orphaned. Series cards' `href` is the single swap point. A "shop the whole series on Amazon" CTA can use `SeriesMeta.amazonSeriesUrl` (Dino = `amazon.com/dp/B0H6C5GSF1`, Safari = `amazon.com/dp/B0H6H9QT1F`, Ocean = `amazon.com/dp/B0H6CB7SS8`, all stored, not surfaced yet; Farm series URL TBD). Wants the Ocean line fully live on Amazon first.
 - **JSON-LD TODOs** (`lib/schema.ts`): Organization `sameAs: []` (need Amazon brand page + social profile URLs); ISBNs (none in repo).
 - **`/books` catalog is client-rendered** (`BooksBrowser`, `?age=`/`?series=` filters) → empty to non-JS crawlers. SEO improvement opportunity.
 - **For Parents page** still has a "reading-together photo coming soon" placeholder slot.
