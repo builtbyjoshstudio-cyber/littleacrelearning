@@ -1,6 +1,6 @@
 # Little Acre Learning — Website HANDOFF
 
-Living source-of-truth for this repo. Update it as the site changes. Last updated: 2026-06-22.
+Living source-of-truth for this repo. Update it as the site changes. Last updated: 2026-06-23.
 
 ---
 
@@ -12,7 +12,7 @@ Marketing/storefront website for **Little Acre Learning** — a children's **col
 - **Brand owner:** Little Acre Learning is a brand of **Built by Josh Studio LLC** (footer attribution links to https://builtbyjoshstudio.com).
 - Little Acre Learning is **both publisher and author/imprint** of every book (no separate personal author name).
 
-## 2. The catalog (9 books = 3 series × 3 age bands)
+## 2. The catalog (12 books = 4 series × 3 age bands)
 
 All books are coloring/activity books that follow the same per-age-band pattern:
 
@@ -22,13 +22,13 @@ All books are coloring/activity books that follow the same per-age-band pattern:
 | 5–7 (Saplings) | "Trace, Read & Learn" | ~70 |
 | 8–10 (Branches) | "Read · Think · Color" | ~80 |
 
-Three series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Ocean Friends**.
+Four series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Ocean Friends**, **Safari Friends** (savanna animals; added 2026-06-23).
 
 **Amazon status (as of last update):** `book.amazonUrl` = the ASIN URL when live; `null` ⇒ "Coming soon to Amazon" CTA.
 
 - ✅ Live: Farm 5-7 `B0H5RMDKMR`, Farm 8-10 `B0H5TNJ4NG`, Dino 2-4 `B0H65VTNMG`, Dino 5-7 `B0H67G4XNJ`, Dino 8-10 `B0H66G7FB7`, Ocean 8-10 `B0H6CCP4PZ`
-- ⏳ Coming soon (no live Amazon link yet): **Farm 2-4, Ocean 2-4, Ocean 5-7**
-- **Free packs:** all 9 books have a `freePackUrl` (Lemon Squeezy free product, store `tynkrtoolsco.lemonsqueezy.com`).
+- ⏳ Coming soon (no live Amazon link yet): **Farm 2-4, Ocean 2-4, Ocean 5-7, Safari 2-4, Safari 5-7, Safari 8-10**
+- **Free packs:** the 9 Farm/Dino/Ocean books each have a `freePackUrl` (Lemon Squeezy free product, store `tynkrtoolsco.lemonsqueezy.com`). The **3 Safari books have no `freePackUrl` yet** — Josh is generating the Lemon Squeezy links; wire them when provided (until then no free-pack link/`/printables` listing for Safari).
 - **No hardcoded prices** — Amazon is the source of truth (`book.price` stays `null`; cards show "Available on Amazon →" or "Coming soon"). No cart/checkout on-site.
 
 ## 3. Stack, hosting, deploy
@@ -42,7 +42,7 @@ Three series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Oce
 
 ## 4. Content model (where data lives)
 
-- **`content/books.ts`** — typed `Book[]` (the 9 books) + helpers `getBook`, `getBooksByAge`, `getBooksBySeries`, `getFeaturedBooks`, `getRelatedBooks`. Exports series gradient consts (`FARM_/DINO_/OCEAN_GRADIENT`). `previews(slug, n)` helper builds preview image paths.
+- **`content/books.ts`** — typed `Book[]` (the 9 books) + helpers `getBook`, `getBooksByAge`, `getBooksBySeries`, `getFeaturedBooks`, `getRelatedBooks`. Exports series gradient consts (`FARM_/DINO_/OCEAN_/SAFARI_GRADIENT`; Safari = `linear-gradient(135deg,#F2B43C,#C2701F)`, savanna gold→amber). `previews(slug, n)` helper builds preview image paths.
 - **`content/ageBands.ts`** — `ageBands` (Sprouts/Saplings/Branches meta) + `seriesList`.
 - **`content/series.ts`** — `seriesMetaList` (`SeriesMeta`: series/slug/name/tagline/gradient/accent/href + optional `amazonSeriesUrl`). `href` = `/books?series=<Series>` and is the **single swap point** for Plan B per-series pages.
 - **`content/posts.ts`** — blog posts, currently `[]` (empty). Originals preserved in **`content/drafts/posts.ts`** (unpublished — see §7).
@@ -56,7 +56,7 @@ Three series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Oce
 - **Covers (source of truth):** `public/covers/<slug>.jpg` — 1100px front-cover crops extracted from the KDP wrap cover PDFs.
 - **Series-card thumbnails:** `public/covers/thumbs/<slug>.jpg` — 520px, used ONLY by the homepage series fans (derived path `coverImage.replace('/covers/','/covers/thumbs/')`).
 - **Hero renditions:** `public/covers/hero/<slug>.jpg` — 620px, for the 3 hero-arc covers (Ocean 2-4, Farm 8-10, Dino 5-7), `priority`-loaded.
-- **Peek-inside previews:** `public/previews/<slug>/N.jpg` (Farm = 6 pages, Dino/Ocean = 10), from the per-book "preview" PDFs.
+- **Peek-inside previews:** `public/previews/<slug>/N.jpg` (Farm = 6 pages, Dino/Ocean/Safari = 10), from the per-book "preview" PDFs. The preview PDFs' page 1 is the book's title page — kept as image `1.jpg` (matches existing convention), with content pages 2–N after it.
 - **Brand:** `app/icon.svg` + `apple-icon.png` + `favicon.ico` + `app/manifest.ts`; `public/icon-192/512.png`; `public/og.png` (social/OG). Logo = inlined `LogoMark`/`LogoMarkReversed` in `components/Logo.tsx`.
 
 **Rendering pipeline (Windows):** PyMuPDF (`pip install pymupdf`) + Pillow.
@@ -66,9 +66,9 @@ Three series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Oce
 
 ## 6. Homepage structure (`app/page.tsx`)
 
-Hero (book arc) → "Find the right shelf" (3 age-band cards → `/books?age=`) → "Explore the series" (3 `SeriesCard`s → `/books?series=`) → "New this season" (6 featured `BookCard`s, `md:grid-cols-3`) → "Why parents trust us" → free-pack banner.
-- **Hero "book arc":** 3 covers on a mint `#E8EFDF` panel — Ocean 2-4 (tilt −6°), Farm 8-10 (center, larger, z-2, on top), Dino 5-7 (tilt +6°), `priority` covers. Grid pinned `grid-cols-1 md:grid-cols-2`.
-- **Featured set (6):** Farm 2-4/5-7/8-10, Dino 2-4, Dino 8-10, Ocean 2-4 (the `featured: true` flags in `books.ts`).
+Hero (book arc) → "Find the right shelf" (3 age-band cards → `/books?age=`) → "Explore the series" (4 `SeriesCard`s → `/books?series=`, grid `sm:grid-cols-2 lg:grid-cols-4` so the 4th card doesn't orphan — 2×2 on tablet, 4-up on desktop) → "New this season" (9 featured `BookCard`s, `md:grid-cols-3` = 3 rows) → "Why parents trust us" → free-pack banner.
+- **Hero "book arc":** 3 covers on a mint `#E8EFDF` panel — Ocean 2-4 (tilt −6°), Farm 8-10 (center, larger, z-2, on top), Dino 5-7 (tilt +6°), `priority` covers. Grid pinned `grid-cols-1 md:grid-cols-2`. (Safari is **not** in the hero arc — Josh's call when it launched.)
+- **Featured set (9):** Farm 2-4/5-7/8-10, Dino 2-4, Dino 8-10, Ocean 2-4, Safari 2-4/5-7/8-10 (the `featured: true` flags in `books.ts`). Safari was added to featured ("grow the grid" — Josh's choice) and sits in catalog order, so it's the 3rd row.
 
 ## 7. SEO / GEO / content-accuracy state
 
@@ -94,7 +94,8 @@ Hero (book arc) → "Find the right shelf" (3 age-band cards → `/books?age=`) 
 
 ## 10. Outstanding work
 
-- **3 Amazon links pending:** Farm 2-4, Ocean 2-4, Ocean 5-7 — wire each as it goes live (also clears the Book-schema `sameAs` TODOs).
+- **6 Amazon links pending:** Farm 2-4, Ocean 2-4, Ocean 5-7, Safari 2-4, Safari 5-7, Safari 8-10 — wire each as it goes live (also clears the Book-schema `sameAs` TODOs).
+- **3 Safari free-pack (Lemon Squeezy) links pending:** Safari 2-4/5-7/8-10 have no `freePackUrl` yet (Josh is generating them). Add `freePackUrl` per book when provided → re-enables the "free sample pack" link + `/printables` listing for Safari.
 - **Plan B — per-series landing pages** (`/series/<slug>/`): one indexable page per series listing its 3 tiers, with `CollectionPage`+`ItemList` JSON-LD, `app/sitemap.ts` additions, and book→series back-links so they aren't orphaned. Series cards' `href` is the single swap point. A "shop the whole series on Amazon" CTA can use `SeriesMeta.amazonSeriesUrl` (Dino = `amazon.com/dp/B0H6C5GSF1`, stored, verify live first; Farm/Ocean series URLs TBD). Wants the Ocean line fully live on Amazon first.
 - **JSON-LD TODOs** (`lib/schema.ts`): Organization `sameAs: []` (need Amazon brand page + social profile URLs); ISBNs (none in repo).
 - **`/books` catalog is client-rendered** (`BooksBrowser`, `?age=`/`?series=` filters) → empty to non-JS crawlers. SEO improvement opportunity.

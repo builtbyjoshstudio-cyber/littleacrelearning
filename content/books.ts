@@ -3,6 +3,7 @@ import type { AgeBand, Book, Series } from "@/lib/types";
 export const FARM_GRADIENT = "linear-gradient(135deg,#5BC6BC,#2E9D93)";
 export const DINO_GRADIENT = "linear-gradient(135deg,#7FC96B,#4E9A3E)";
 export const OCEAN_GRADIENT = "linear-gradient(135deg,#45A8D6,#1E76A6)";
+export const SAFARI_GRADIENT = "linear-gradient(135deg,#F2B43C,#C2701F)";
 
 // Sample interior pages live at /previews/<slug>/<n>.jpg
 const previews = (slug: string, n: number): string[] =>
@@ -271,6 +272,89 @@ export const books: Book[] = [
     coverImage: "/covers/ocean-friends-8-10.jpg",
     gradient: OCEAN_GRADIENT,
     previewImages: previews("ocean-friends-8-10", 10),
+  },
+
+  // ───────────────────────── Safari Friends ─────────────────────────
+  {
+    slug: "safari-friends-2-4",
+    title: "Little Acre Safari Friends",
+    subtitle: "A Safari Speech & Counting Coloring Book",
+    series: "Safari Friends",
+    bookNumber: 1,
+    ageBand: "2-4",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Color 50 friendly safari animals, count along, and make wild safari sounds — made for little hands.",
+    longDescription:
+      "Trek across a whole savanna of friendly animals! Give a great big roar with the lion, swing your trunk like the elephant, and stomp along with the wildebeest. Every big, bold page has a wild safari sound to make and something fun to count together.",
+    whatItTeaches: [
+      "50 big, bold safari animals to color",
+      "Count spots, ears & blades of grass from 1 to 5",
+      "Wild safari sounds & first words",
+      "Stomp, hop & stretch along the way",
+    ],
+    pages: 50,
+    format: "Coloring book",
+    amazonUrl: null,
+    coverImage: "/covers/safari-friends-2-4.jpg",
+    gradient: SAFARI_GRADIENT,
+    previewImages: previews("safari-friends-2-4", 10),
+    featured: true,
+  },
+  {
+    slug: "safari-friends-5-7",
+    title: "Little Acre Safari Friends",
+    subtitle: "A Trace, Read & Learn Activity Book",
+    series: "Safari Friends",
+    bookNumber: 2,
+    ageBand: "5-7",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Trace a sentence and read a true safari fact on every page while coloring 70 animals of the savanna, river, and plains.",
+    longDescription:
+      "Set off on an African safari and meet the animals of the savanna, river & plains! Color the mighty lion, the towering elephant, and the speedy ostrich. Every page has a sentence to trace and a true animal fact to read together.",
+    whatItTeaches: [
+      "70 big, bold safari animals to color",
+      "Trace a sentence on every page",
+      "A true safari fact to read & learn",
+      "Animals of the savanna, river & plains",
+    ],
+    pages: 70,
+    format: "Activity book",
+    amazonUrl: null,
+    coverImage: "/covers/safari-friends-5-7.jpg",
+    gradient: SAFARI_GRADIENT,
+    previewImages: previews("safari-friends-5-7", 10),
+    featured: true,
+  },
+  {
+    slug: "safari-friends-8-10",
+    title: "Little Acre Safari Friends",
+    subtitle: "Read · Think · Color",
+    series: "Safari Friends",
+    bookNumber: 3,
+    ageBand: "8-10",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Eighty detailed safari scenes to color, each paired with a true fact and a find-and-color challenge.",
+    longDescription:
+      "Little Acre Safari Friends is back — now for big kids! Eighty richly detailed pen-and-ink scenes pair real African safari science with calm, focused coloring. Read a true Fact Zone, talk over a Think question, then hunt for hidden details with a Find & Color challenge.",
+    whatItTeaches: [
+      "80 detailed safari animals & savanna scenes to color",
+      "Fact Zone — a true science fact on every page",
+      "Think — a question to puzzle over together",
+      "Find & Color — hunt for hidden details",
+    ],
+    pages: 80,
+    format: "Coloring book",
+    amazonUrl: null,
+    coverImage: "/covers/safari-friends-8-10.jpg",
+    gradient: SAFARI_GRADIENT,
+    previewImages: previews("safari-friends-8-10", 10),
+    featured: true,
   },
 ];
 

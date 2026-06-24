@@ -1,5 +1,10 @@
 import type { Series, SeriesMeta } from "@/lib/types";
-import { FARM_GRADIENT, DINO_GRADIENT, OCEAN_GRADIENT } from "./books";
+import {
+  FARM_GRADIENT,
+  DINO_GRADIENT,
+  OCEAN_GRADIENT,
+  SAFARI_GRADIENT,
+} from "./books";
 
 // Plan B: when per-series landing pages exist, swap this to `/series/${slug}/`.
 const seriesHref = (series: Series) =>
@@ -37,6 +42,16 @@ export const seriesMetaList: SeriesMeta[] = [
     gradient: OCEAN_GRADIENT,
     accent: "#1E76A6",
     href: seriesHref("Ocean Friends"),
+  },
+  {
+    series: "Safari Friends",
+    slug: "safari-friends",
+    name: "Safari Friends",
+    tagline:
+      "Safari animals to color and learn about — a book for every stage, ages 2–10.",
+    gradient: SAFARI_GRADIENT,
+    accent: "#C2701F",
+    href: seriesHref("Safari Friends"),
   },
 ];
 

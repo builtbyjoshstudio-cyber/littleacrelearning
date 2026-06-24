@@ -2,7 +2,11 @@ export type AgeBand = "2-4" | "5-7" | "8-10";
 
 export type BandId = "sprouts" | "saplings" | "branches";
 
-export type Series = "Farm Friends" | "Dino Friends" | "Ocean Friends";
+export type Series =
+  | "Farm Friends"
+  | "Dino Friends"
+  | "Ocean Friends"
+  | "Safari Friends";
 
 export interface AgeBandMeta {
   id: BandId;
