@@ -354,7 +354,7 @@ export const books: Book[] = [
     ],
     pages: 80,
     format: "Coloring book",
-    amazonUrl: null,
+    amazonUrl: "https://www.amazon.com/dp/B0H6H75MY1",
     freePackUrl:
       "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/26b8eb7d-24e0-41f6-884a-9958e610122a",
     coverImage: "/covers/safari-friends-8-10.jpg",
