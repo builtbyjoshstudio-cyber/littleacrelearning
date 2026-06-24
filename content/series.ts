@@ -52,6 +52,8 @@ export const seriesMetaList: SeriesMeta[] = [
     gradient: SAFARI_GRADIENT,
     accent: "#C2701F",
     href: seriesHref("Safari Friends"),
+    // Plan B: Amazon series page — stored, not surfaced yet.
+    amazonSeriesUrl: "https://www.amazon.com/dp/B0H6H9QT1F",
   },
 ];
 

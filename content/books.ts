@@ -325,7 +325,7 @@ export const books: Book[] = [
     ],
     pages: 70,
     format: "Activity book",
-    amazonUrl: null,
+    amazonUrl: "https://www.amazon.com/dp/B0H6GTQHYY",
     freePackUrl:
       "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/2d54745e-fc85-4c1e-b0fd-93450bfa6e57",
     coverImage: "/covers/safari-friends-5-7.jpg",
