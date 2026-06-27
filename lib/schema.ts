@@ -29,9 +29,9 @@ export const organizationSchema = {
     "@type": "Organization",
     name: "Built by Josh Studio LLC",
   },
-  // TODO: add real profile URLs (Amazon author/brand page, Instagram, Facebook,
-  // Pinterest, etc.). Drop them into this array and they apply site-wide.
-  sameAs: [] as string[],
+  // Brand profile URLs — apply site-wide. TODO: add Amazon brand page,
+  // Instagram, Facebook when available.
+  sameAs: ["https://www.pinterest.com/littleacrelearning/"],
 };
 
 const AGE_RANGE: Record<Book["ageBand"], [number, number]> = {
