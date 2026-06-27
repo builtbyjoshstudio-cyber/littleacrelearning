@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   description:
     "Warm, wholesome coloring & activity books for children ages 2–10 — speech, counting, tracing, and true facts. Learning that feels like play.",
   openGraph: {
+    siteName: "Little Acre Learning",
     title: "Little Acre Learning",
     description:
       "Coloring & activity books for ages 2–10. Learning that feels like play.",

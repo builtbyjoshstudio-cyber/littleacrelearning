@@ -38,7 +38,10 @@ export function generateMetadata({
     description: book.shortDescription,
     alternates: { canonical: url },
     openGraph: {
-      type: "website",
+      // "article" so the page qualifies as a Pinterest Article Rich Pin
+      // (the no-price Rich Pin type); enriches Pins of book covers.
+      type: "article",
+      siteName: "Little Acre Learning",
       title: ogTitle,
       description: book.shortDescription,
       url,

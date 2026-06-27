@@ -24,10 +24,13 @@ export function generateMetadata({
     alternates: { canonical: url },
     openGraph: {
       type: "article",
+      siteName: "Little Acre Learning",
       title: post.title,
       description: post.excerpt,
       url,
       images: ["/og.png"],
+      publishedTime: post.date,
+      authors: [post.author.name],
     },
   };
 }
