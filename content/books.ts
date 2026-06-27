@@ -238,7 +238,7 @@ export const books: Book[] = [
     ],
     pages: 70,
     format: "Activity book",
-    amazonUrl: null,
+    amazonUrl: "https://www.amazon.com/dp/B0H6LVJ4MQ",
     freePackUrl:
       "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/f1e4ed0e-b525-4c39-95dc-5a5fff870368",
     coverImage: "/covers/ocean-friends-5-7.jpg",
