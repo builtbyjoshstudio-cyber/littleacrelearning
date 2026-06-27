@@ -49,6 +49,10 @@ export const metadata: Metadata = {
       "Coloring & activity books for ages 2–10. Learning that feels like play.",
     images: ["/og.png"],
   },
+  // Pinterest site verification ("Claim your website" → Add HTML tag).
+  verification: {
+    other: { "p:domain_verify": "2c9732d03a5c0a4ac80561c036b12f41" },
+  },
 };
 
 export default function RootLayout({
