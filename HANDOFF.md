@@ -26,8 +26,8 @@ Four series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Ocea
 
 **Amazon status (as of last update):** `book.amazonUrl` = the ASIN URL when live; `null` ⇒ "Coming soon to Amazon" CTA.
 
-- ✅ Live: Farm 5-7 `B0H5RMDKMR`, Farm 8-10 `B0H5TNJ4NG`, Dino 2-4 `B0H65VTNMG`, Dino 5-7 `B0H67G4XNJ`, Dino 8-10 `B0H66G7FB7`, Ocean 8-10 `B0H6CCP4PZ`, Ocean 5-7 `B0H6LVJ4MQ`, Safari 2-4 `B0H6MDP2LJ`, Safari 5-7 `B0H6GTQHYY`, Safari 8-10 `B0H6H75MY1`
-- ⏳ Coming soon (no live Amazon link yet): **Farm 2-4, Ocean 2-4**
+- ✅ Live: Farm 5-7 `B0H5RMDKMR`, Farm 8-10 `B0H5TNJ4NG`, Dino 2-4 `B0H65VTNMG`, Dino 5-7 `B0H67G4XNJ`, Dino 8-10 `B0H66G7FB7`, Ocean 8-10 `B0H6CCP4PZ`, Ocean 5-7 `B0H6LVJ4MQ`, Ocean 2-4 `B0H6SNTK6Q`, Safari 2-4 `B0H6MDP2LJ`, Safari 5-7 `B0H6GTQHYY`, Safari 8-10 `B0H6H75MY1`
+- ⏳ Coming soon (no live Amazon link yet): **Farm 2-4**
 - **Free packs:** all 12 books have a `freePackUrl` (Lemon Squeezy free product, store `tynkrtoolsco.lemonsqueezy.com`). Josh keeps the canonical link list in a "Lemon Squeezy Product links" spreadsheet (sheet "Little Acre Learning Previews").
 - **No hardcoded prices** — Amazon is the source of truth (`book.price` stays `null`; cards show "Available on Amazon →" or "Coming soon"). No cart/checkout on-site.
 
@@ -95,7 +95,7 @@ Hero (book arc) → "Find the right shelf" (3 age-band cards → `/books?age=`) 
 
 ## 10. Outstanding work
 
-- **2 Amazon links pending:** Farm 2-4, Ocean 2-4 — wire each as it goes live (also clears the Book-schema `sameAs` TODOs).
+- **1 Amazon link pending:** Farm 2-4 — wire it when live (also clears the Book-schema `sameAs` TODO).
 - **Plan B — per-series landing pages** (`/series/<slug>/`): one indexable page per series listing its 3 tiers, with `CollectionPage`+`ItemList` JSON-LD, `app/sitemap.ts` additions, and book→series back-links so they aren't orphaned. Series cards' `href` is the single swap point. A "shop the whole series on Amazon" CTA can use `SeriesMeta.amazonSeriesUrl` (Dino = `amazon.com/dp/B0H6C5GSF1`, Safari = `amazon.com/dp/B0H6H9QT1F`, Ocean = `amazon.com/dp/B0H6CB7SS8`, all stored, not surfaced yet; Farm series URL TBD). Wants the Ocean line fully live on Amazon first.
 - **JSON-LD TODOs** (`lib/schema.ts`): Organization `sameAs` now has the Pinterest profile (`pinterest.com/littleacrelearning`); still add Amazon brand page + other socials (Instagram/Facebook) when available. ISBNs (none in repo).
 - **`/books` catalog is client-rendered** (`BooksBrowser`, `?age=`/`?series=` filters) → empty to non-JS crawlers. SEO improvement opportunity.
