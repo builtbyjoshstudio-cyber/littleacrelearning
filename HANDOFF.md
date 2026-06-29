@@ -12,7 +12,7 @@ Marketing/storefront website for **Little Acre Learning** — a children's **col
 - **Brand owner:** Little Acre Learning is a brand of **Built by Josh Studio LLC** (footer attribution links to https://builtbyjoshstudio.com).
 - Little Acre Learning is **both publisher and author/imprint** of every book (no separate personal author name).
 
-## 2. The catalog (12 books = 4 series × 3 age bands)
+## 2. The catalog (15 books = 5 series × 3 age bands)
 
 All books are coloring/activity books that follow the same per-age-band pattern:
 
@@ -22,12 +22,12 @@ All books are coloring/activity books that follow the same per-age-band pattern:
 | 5–7 (Saplings) | "Trace, Read & Learn" | ~70 |
 | 8–10 (Branches) | "Read · Think · Color" | ~80 |
 
-Four series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Ocean Friends**, **Safari Friends** (savanna animals; added 2026-06-23).
+Five series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Ocean Friends**, **Safari Friends** (savanna animals; added 2026-06-23), **Jungle Friends** (Amazon-rainforest animals; added 2026-06-29 — all 3 coming-soon, no Amazon links yet).
 
 **Amazon status (as of last update):** `book.amazonUrl` = the ASIN URL when live; `null` ⇒ "Coming soon to Amazon" CTA.
 
 - ✅ Live: Farm 5-7 `B0H5RMDKMR`, Farm 8-10 `B0H5TNJ4NG`, Dino 2-4 `B0H65VTNMG`, Dino 5-7 `B0H67G4XNJ`, Dino 8-10 `B0H66G7FB7`, Ocean 8-10 `B0H6CCP4PZ`, Ocean 5-7 `B0H6LVJ4MQ`, Ocean 2-4 `B0H6SNTK6Q`, Safari 2-4 `B0H6MDP2LJ`, Safari 5-7 `B0H6GTQHYY`, Safari 8-10 `B0H6H75MY1`
-- ⏳ Coming soon (no live Amazon link yet): **Farm 2-4**
+- ⏳ Coming soon (no live Amazon link yet): **Farm 2-4**, **Jungle 2-4 / 5-7 / 8-10**
 - **Free packs:** all 12 books have a `freePackUrl` (Lemon Squeezy free product, store `tynkrtoolsco.lemonsqueezy.com`). Josh keeps the canonical link list in a "Lemon Squeezy Product links" spreadsheet (sheet "Little Acre Learning Previews").
 - **No hardcoded prices** — Amazon is the source of truth (`book.price` stays `null`; cards show "Available on Amazon →" or "Coming soon"). No cart/checkout on-site.
 
@@ -66,9 +66,9 @@ Four series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Ocea
 
 ## 6. Homepage structure (`app/page.tsx`)
 
-Hero (book arc) → "Find the right shelf" (3 age-band cards → `/books?age=`) → "Explore the series" (4 `SeriesCard`s → `/books?series=`, grid `sm:grid-cols-2 lg:grid-cols-4` so the 4th card doesn't orphan — 2×2 on tablet, 4-up on desktop) → "New this season" (9 featured `BookCard`s, `md:grid-cols-3` = 3 rows) → "Why parents trust us" → free-pack banner.
+Hero (book arc) → "Find the right shelf" (3 age-band cards → `/books?age=`) → "Explore the series" (5 `SeriesCard`s → `/books?series=`, grid `sm:grid-cols-2 lg:grid-cols-5` — 5-up single row on desktop is the only orphan-free layout for 5; tablet is 2-col with a trailing single) → "New this season" (12 featured `BookCard`s, `md:grid-cols-3` = 4 rows) → "Why parents trust us" → free-pack banner.
 - **Hero "book arc":** 3 covers on a mint `#E8EFDF` panel — Ocean 2-4 (tilt −6°), Farm 8-10 (center, larger, z-2, on top), Dino 5-7 (tilt +6°), `priority` covers. Grid pinned `grid-cols-1 md:grid-cols-2`. (Safari is **not** in the hero arc — Josh's call when it launched.)
-- **Featured set (9):** Farm 2-4/5-7/8-10, Dino 2-4, Dino 8-10, Ocean 2-4, Safari 2-4/5-7/8-10 (the `featured: true` flags in `books.ts`). Safari was added to featured ("grow the grid" — Josh's choice) and sits in catalog order, so it's the 3rd row.
+- **Featured set (12):** Farm 2-4/5-7/8-10, Dino 2-4, Dino 8-10, Ocean 2-4, Safari 2-4/5-7/8-10, Jungle 2-4/5-7/8-10 (the `featured: true` flags in `books.ts`). All 3 Jungle were featured to keep the grid a clean multiple of 3 (12 = 4 rows) and spotlight the newest series; they sit last in catalog order (4th row).
 
 ## 7. SEO / GEO / content-accuracy state
 
@@ -95,7 +95,7 @@ Hero (book arc) → "Find the right shelf" (3 age-band cards → `/books?age=`) 
 
 ## 10. Outstanding work
 
-- **1 Amazon link pending:** Farm 2-4 — wire it when live (also clears the Book-schema `sameAs` TODO).
+- **4 Amazon links pending:** Farm 2-4 and Jungle 2-4 / 5-7 / 8-10 — wire each when live (also clears the Book-schema `sameAs` TODO). Jungle was added 2026-06-29 as a coming-soon 5th series (covers + 10-page previews staged; gradient `JUNGLE_GRADIENT` = `linear-gradient(135deg,#5BA668,#1E5631)`, accent `#1E5631`). Jungle has **no free packs** yet (no `freePackUrl`) and **no `amazonSeriesUrl`** — add both when available.
 - **Plan B — per-series landing pages** (`/series/<slug>/`): one indexable page per series listing its 3 tiers, with `CollectionPage`+`ItemList` JSON-LD, `app/sitemap.ts` additions, and book→series back-links so they aren't orphaned. Series cards' `href` is the single swap point. A "shop the whole series on Amazon" CTA can use `SeriesMeta.amazonSeriesUrl` (Dino = `amazon.com/dp/B0H6C5GSF1`, Safari = `amazon.com/dp/B0H6H9QT1F`, Ocean = `amazon.com/dp/B0H6CB7SS8`, all stored, not surfaced yet; Farm series URL TBD). Wants the Ocean line fully live on Amazon first.
 - **JSON-LD TODOs** (`lib/schema.ts`): Organization `sameAs` now has the Pinterest profile (`pinterest.com/littleacrelearning`); still add Amazon brand page + other socials (Instagram/Facebook) when available. ISBNs (none in repo).
 - **`/books` catalog is client-rendered** (`BooksBrowser`, `?age=`/`?series=` filters) → empty to non-JS crawlers. SEO improvement opportunity.

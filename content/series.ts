@@ -4,6 +4,7 @@ import {
   DINO_GRADIENT,
   OCEAN_GRADIENT,
   SAFARI_GRADIENT,
+  JUNGLE_GRADIENT,
 } from "./books";
 
 // Plan B: when per-series landing pages exist, swap this to `/series/${slug}/`.
@@ -56,6 +57,16 @@ export const seriesMetaList: SeriesMeta[] = [
     href: seriesHref("Safari Friends"),
     // Plan B: Amazon series page — stored, not surfaced yet.
     amazonSeriesUrl: "https://www.amazon.com/dp/B0H6H9QT1F",
+  },
+  {
+    series: "Jungle Friends",
+    slug: "jungle-friends",
+    name: "Jungle Friends",
+    tagline:
+      "Rainforest animals to color and learn about — a book for every stage, ages 2–10.",
+    gradient: JUNGLE_GRADIENT,
+    accent: "#1E5631",
+    href: seriesHref("Jungle Friends"),
   },
 ];
 

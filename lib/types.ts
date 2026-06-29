@@ -6,7 +6,8 @@ export type Series =
   | "Farm Friends"
   | "Dino Friends"
   | "Ocean Friends"
-  | "Safari Friends";
+  | "Safari Friends"
+  | "Jungle Friends";
 
 export interface AgeBandMeta {
   id: BandId;

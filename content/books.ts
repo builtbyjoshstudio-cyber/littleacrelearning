@@ -4,6 +4,7 @@ export const FARM_GRADIENT = "linear-gradient(135deg,#5BC6BC,#2E9D93)";
 export const DINO_GRADIENT = "linear-gradient(135deg,#7FC96B,#4E9A3E)";
 export const OCEAN_GRADIENT = "linear-gradient(135deg,#45A8D6,#1E76A6)";
 export const SAFARI_GRADIENT = "linear-gradient(135deg,#F2B43C,#C2701F)";
+export const JUNGLE_GRADIENT = "linear-gradient(135deg,#5BA668,#1E5631)";
 
 // Sample interior pages live at /previews/<slug>/<n>.jpg
 const previews = (slug: string, n: number): string[] =>
@@ -360,6 +361,89 @@ export const books: Book[] = [
     coverImage: "/covers/safari-friends-8-10.jpg",
     gradient: SAFARI_GRADIENT,
     previewImages: previews("safari-friends-8-10", 10),
+    featured: true,
+  },
+
+  // ───────────────────────── Jungle Friends ─────────────────────────
+  {
+    slug: "jungle-friends-2-4",
+    title: "Little Acre Jungle Friends",
+    subtitle: "A Jungle Speech & Counting Coloring Book",
+    series: "Jungle Friends",
+    bookNumber: 1,
+    ageBand: "2-4",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Color 50 friendly jungle animals, count along, and make wild jungle sounds — made for little hands.",
+    longDescription:
+      "Swing into a rainforest full of friendly animals! Give a great big roar with the jaguar, hang upside down like the sloth, and squawk along with the toucan. Every big, bold page has a wild jungle sound to make and something fun to count together.",
+    whatItTeaches: [
+      "50 big, bold jungle animals to color",
+      "Count spots, wings & leaves from 1 to 5",
+      "Wild jungle sounds & first words",
+      "Swing, climb & stretch along the way",
+    ],
+    pages: 50,
+    format: "Coloring book",
+    amazonUrl: null,
+    coverImage: "/covers/jungle-friends-2-4.jpg",
+    gradient: JUNGLE_GRADIENT,
+    previewImages: previews("jungle-friends-2-4", 10),
+    featured: true,
+  },
+  {
+    slug: "jungle-friends-5-7",
+    title: "Little Acre Jungle Friends",
+    subtitle: "A Trace, Read & Learn Activity Book",
+    series: "Jungle Friends",
+    bookNumber: 2,
+    ageBand: "5-7",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Trace a sentence and read a true jungle fact on every page while coloring 70 animals of the canopy, river, and forest floor.",
+    longDescription:
+      "Set off into the Amazon rainforest and meet the animals of the canopy, river & forest floor! Color the powerful jaguar, the slow-climbing sloth, and the colorful toucan. Every page has a sentence to trace and a true animal fact to read together.",
+    whatItTeaches: [
+      "70 big, bold jungle animals to color",
+      "Trace a sentence on every page",
+      "A true jungle fact to read & learn",
+      "Animals of the canopy, river & forest floor",
+    ],
+    pages: 70,
+    format: "Activity book",
+    amazonUrl: null,
+    coverImage: "/covers/jungle-friends-5-7.jpg",
+    gradient: JUNGLE_GRADIENT,
+    previewImages: previews("jungle-friends-5-7", 10),
+    featured: true,
+  },
+  {
+    slug: "jungle-friends-8-10",
+    title: "Little Acre Jungle Friends",
+    subtitle: "Read · Think · Color",
+    series: "Jungle Friends",
+    bookNumber: 3,
+    ageBand: "8-10",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Eighty detailed rainforest scenes to color, each paired with a true fact and a find-and-color challenge.",
+    longDescription:
+      "Little Acre Jungle Friends is back — now for big kids! Eighty richly detailed pen-and-ink scenes pair real Amazon rainforest science with calm, focused coloring. Read a true Fact Zone, talk over a Think question, then hunt for hidden details with a Find & Color challenge.",
+    whatItTeaches: [
+      "80 detailed jungle animals & rainforest scenes to color",
+      "Fact Zone — a true science fact on every page",
+      "Think — a question to puzzle over together",
+      "Find & Color — hunt for hidden details",
+    ],
+    pages: 80,
+    format: "Coloring book",
+    amazonUrl: null,
+    coverImage: "/covers/jungle-friends-8-10.jpg",
+    gradient: JUNGLE_GRADIENT,
+    previewImages: previews("jungle-friends-8-10", 10),
     featured: true,
   },
 ];
