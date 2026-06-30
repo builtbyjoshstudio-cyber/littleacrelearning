@@ -90,7 +90,7 @@ export default function BookPage({ params }: { params: { slug: string } }) {
 
       <div className="grid gap-10 md:grid-cols-[420px_1fr] md:gap-14">
         {/* Left: cover + peek inside */}
-        <div>
+        <div className="min-w-0">
           <div className="mx-auto max-w-[360px] md:max-w-none">
             <CoverPlaceholder
               title={book.title}
@@ -145,7 +145,7 @@ export default function BookPage({ params }: { params: { slug: string } }) {
         </div>
 
         {/* Right: details */}
-        <div>
+        <div className="min-w-0">
           <AgeBadge band={book.ageBand} />
           <h1 className="mt-3 font-display text-[28px] font-extrabold leading-tight text-ink md:text-[40px]">
             {book.title}

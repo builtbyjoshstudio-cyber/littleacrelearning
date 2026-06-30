@@ -34,7 +34,7 @@ Five series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Ocea
 ## 3. Stack, hosting, deploy
 
 - **Next.js 14 (App Router) + TypeScript + Tailwind**, **static export** (`output: 'export'`, `trailingSlash: true`, `images.unoptimized: true` in `next.config.mjs`). No basePath/assetPrefix (apex root).
-- **Local clone:** `C:\Users\jotra\Downloads\littleacrelearning`
+- **Local clone:** `C:\Users\jotra\OneDrive\Desktop\Little Acre Learning\littleacrelearning` (moved here 06/2026 — the consolidated LAL home; old Downloads clone removed). ⚠ Exclude `node_modules/` + `out/` from OneDrive sync.
 - **Repo:** github.com/builtbyjoshstudio-cyber/littleacrelearning — **PUBLIC** (required for GitHub Pages on the free plan). The GitHub identity/account for this repo is **`builtbyjoshstudio-cyber`** (not `jotra`).
 - **Hosting:** GitHub Pages. **DNS at Squarespace** — apex `A` records → GitHub Pages IPs (185.199.108–111.153), `www` CNAME → `builtbyjoshstudio-cyber.github.io`. `public/CNAME` = `littleacrelearning.com`. HTTPS enforced.
   - Gotcha: Squarespace re-injects a default `HTTPS`/SVCB record that breaks the Pages domain check — if "DNS check unsuccessful" appears, delete that `HTTPS @` record (apex A + www CNAME are correct).

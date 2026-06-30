@@ -5,10 +5,18 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* In-app webviews (Pinterest/Instagram/Facebook) auto-inflate text on first
+       paint, which pushed body copy past the viewport before reflow. Pin it. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Belt-and-suspenders: never let a child render wider than the viewport on
+       first paint. `clip` (not `hidden`) so the sticky nav keeps working. */
+    overflow-x: clip;
   }
 
   body {
     @apply bg-paper text-body font-sans antialiased;
+    overflow-x: clip;
   }
 
   h1,
