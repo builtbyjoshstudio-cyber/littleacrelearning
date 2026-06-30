@@ -1,6 +1,6 @@
 # Little Acre Learning — Website HANDOFF
 
-Living source-of-truth for this repo. Update it as the site changes. Last updated: 2026-06-23.
+Living source-of-truth for this repo. Update it as the site changes. Last updated: 2026-06-30.
 
 ---
 
@@ -28,13 +28,13 @@ Five series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Ocea
 
 - ✅ Live: Farm 5-7 `B0H5RMDKMR`, Farm 8-10 `B0H5TNJ4NG`, Dino 2-4 `B0H65VTNMG`, Dino 5-7 `B0H67G4XNJ`, Dino 8-10 `B0H66G7FB7`, Ocean 8-10 `B0H6CCP4PZ`, Ocean 5-7 `B0H6LVJ4MQ`, Ocean 2-4 `B0H6SNTK6Q`, Safari 2-4 `B0H6MDP2LJ`, Safari 5-7 `B0H6GTQHYY`, Safari 8-10 `B0H6H75MY1`
 - ⏳ Coming soon (no live Amazon link yet): **Farm 2-4**, **Jungle 2-4 / 5-7 / 8-10**
-- **Free packs:** all 12 books have a `freePackUrl` (Lemon Squeezy free product, store `tynkrtoolsco.lemonsqueezy.com`). Josh keeps the canonical link list in a "Lemon Squeezy Product links" spreadsheet (sheet "Little Acre Learning Previews").
+- **Free packs:** 12 of the 15 books have a `freePackUrl` (Lemon Squeezy free product, store `tynkrtoolsco.lemonsqueezy.com`) — the 3 Jungle books do NOT yet (coming soon). Josh keeps the canonical link list in a "Lemon Squeezy Product links" spreadsheet (sheet "Little Acre Learning Previews").
 - **No hardcoded prices** — Amazon is the source of truth (`book.price` stays `null`; cards show "Available on Amazon →" or "Coming soon"). No cart/checkout on-site.
 
 ## 3. Stack, hosting, deploy
 
 - **Next.js 14 (App Router) + TypeScript + Tailwind**, **static export** (`output: 'export'`, `trailingSlash: true`, `images.unoptimized: true` in `next.config.mjs`). No basePath/assetPrefix (apex root).
-- **Local clone:** `C:\Users\jotra\OneDrive\Desktop\Little Acre Learning\littleacrelearning` (moved here 06/2026 — the consolidated LAL home; old Downloads clone removed). ⚠ Exclude `node_modules/` + `out/` from OneDrive sync.
+- **Local clone:** `C:\Users\jotra\OneDrive\Desktop\Little Acre Learning\littleacrelearning` (moved here 06/2026 — the consolidated LAL home; old Downloads clone removed). The parent `…\Little Acre Learning\` folder now also holds all marketing assets (Pinterest Kit, static pins, Design Assets brand pack); book-production source PDFs stay on `G:\My Drive\Educational Books`. ⚠ Exclude `node_modules/` + `out/` from OneDrive sync.
 - **Repo:** github.com/builtbyjoshstudio-cyber/littleacrelearning — **PUBLIC** (required for GitHub Pages on the free plan). The GitHub identity/account for this repo is **`builtbyjoshstudio-cyber`** (not `jotra`).
 - **Hosting:** GitHub Pages. **DNS at Squarespace** — apex `A` records → GitHub Pages IPs (185.199.108–111.153), `www` CNAME → `builtbyjoshstudio-cyber.github.io`. `public/CNAME` = `littleacrelearning.com`. HTTPS enforced.
   - Gotcha: Squarespace re-injects a default `HTTPS`/SVCB record that breaks the Pages domain check — if "DNS check unsuccessful" appears, delete that `HTTPS @` record (apex A + www CNAME are correct).
@@ -42,7 +42,7 @@ Five series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Ocea
 
 ## 4. Content model (where data lives)
 
-- **`content/books.ts`** — typed `Book[]` (the 9 books) + helpers `getBook`, `getBooksByAge`, `getBooksBySeries`, `getFeaturedBooks`, `getRelatedBooks`. Exports series gradient consts (`FARM_/DINO_/OCEAN_/SAFARI_GRADIENT`; Safari = `linear-gradient(135deg,#F2B43C,#C2701F)`, savanna gold→amber). `previews(slug, n)` helper builds preview image paths.
+- **`content/books.ts`** — typed `Book[]` (the 15 books) + helpers `getBook`, `getBooksByAge`, `getBooksBySeries`, `getFeaturedBooks`, `getRelatedBooks`. Exports series gradient consts (`FARM_/DINO_/OCEAN_/SAFARI_/JUNGLE_GRADIENT`; Safari = `linear-gradient(135deg,#F2B43C,#C2701F)`, savanna gold→amber; Jungle = `linear-gradient(135deg,#5BA668,#1E5631)`, rainforest green). `previews(slug, n)` helper builds preview image paths.
 - **`content/ageBands.ts`** — `ageBands` (Sprouts/Saplings/Branches meta) + `seriesList`.
 - **`content/series.ts`** — `seriesMetaList` (`SeriesMeta`: series/slug/name/tagline/gradient/accent/href + optional `amazonSeriesUrl`). `href` = `/books?series=<Series>` and is the **single swap point** for Plan B per-series pages.
 - **`content/posts.ts`** — blog posts, currently `[]` (empty). Originals preserved in **`content/drafts/posts.ts`** (unpublished — see §7).
@@ -56,7 +56,7 @@ Five series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Ocea
 - **Covers (source of truth):** `public/covers/<slug>.jpg` — 1100px front-cover crops extracted from the KDP wrap cover PDFs.
 - **Series-card thumbnails:** `public/covers/thumbs/<slug>.jpg` — 520px, used ONLY by the homepage series fans (derived path `coverImage.replace('/covers/','/covers/thumbs/')`).
 - **Hero renditions:** `public/covers/hero/<slug>.jpg` — 620px, for the 3 hero-arc covers (Ocean 2-4, Farm 8-10, Dino 5-7), `priority`-loaded.
-- **Peek-inside previews:** `public/previews/<slug>/N.jpg` (Farm = 6 pages, Dino/Ocean/Safari = 10), from the per-book "preview" PDFs. The preview PDFs' page 1 is the book's title page — kept as image `1.jpg` (matches existing convention), with content pages 2–N after it.
+- **Peek-inside previews:** `public/previews/<slug>/N.jpg` (Farm = 6 pages, Dino/Ocean/Safari/Jungle = 10), from the per-book "preview" PDFs. The preview PDFs' page 1 is the book's title page — kept as image `1.jpg` (matches existing convention), with content pages 2–N after it.
 - **Brand:** `app/icon.svg` + `apple-icon.png` + `favicon.ico` + `app/manifest.ts`; `public/icon-192/512.png`; `public/og.png` (social/OG). Logo = inlined `LogoMark`/`LogoMarkReversed` in `components/Logo.tsx`.
 
 **Rendering pipeline (Windows):** PyMuPDF (`pip install pymupdf`) + Pillow.
@@ -96,7 +96,7 @@ Hero (book arc) → "Find the right shelf" (3 age-band cards → `/books?age=`) 
 
 ## 10. Outstanding work
 
-- **4 Amazon links pending:** Farm 2-4 and Jungle 2-4 / 5-7 / 8-10 — wire each when live (also clears the Book-schema `sameAs` TODO). Jungle was added 2026-06-29 as a coming-soon 5th series (covers + 10-page previews staged; gradient `JUNGLE_GRADIENT` = `linear-gradient(135deg,#5BA668,#1E5631)`, accent `#1E5631`). Jungle has **no free packs** yet (no `freePackUrl`) and **no `amazonSeriesUrl`** — add both when available.
+- **4 Amazon links pending:** Farm 2-4 and Jungle 2-4 / 5-7 / 8-10 — wire each when live (also clears the Book-schema `sameAs` TODO). Jungle was added as a coming-soon 5th series (covers + 520px thumbs + 10-page previews staged; gradient `JUNGLE_GRADIENT` = `linear-gradient(135deg,#5BA668,#1E5631)`, accent `#1E5631`). Jungle has **no free packs** yet (no `freePackUrl`) and **no `amazonSeriesUrl`** — add both when available. Jungle book covers were designed in a design tool (jungle-green / marigold palette, reusing the Safari layout) and are **RGB** — the on-site cover JPGs are fine, but the print covers may need **CMYK conversion before KDP print**.
 - **Plan B — per-series landing pages** (`/series/<slug>/`): one indexable page per series listing its 3 tiers, with `CollectionPage`+`ItemList` JSON-LD, `app/sitemap.ts` additions, and book→series back-links so they aren't orphaned. Series cards' `href` is the single swap point. A "shop the whole series on Amazon" CTA can use `SeriesMeta.amazonSeriesUrl` (Dino = `amazon.com/dp/B0H6C5GSF1`, Safari = `amazon.com/dp/B0H6H9QT1F`, Ocean = `amazon.com/dp/B0H6CB7SS8`, all stored, not surfaced yet; Farm series URL TBD). Wants the Ocean line fully live on Amazon first.
 - **JSON-LD TODOs** (`lib/schema.ts`): Organization `sameAs` now has the Pinterest profile (`pinterest.com/littleacrelearning`); still add Amazon brand page + other socials (Instagram/Facebook) when available. ISBNs (none in repo).
 - **`/books` catalog is client-rendered** (`BooksBrowser`, `?age=`/`?series=` filters) → empty to non-JS crawlers. SEO improvement opportunity.
