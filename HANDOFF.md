@@ -92,6 +92,7 @@ Hero (book arc) → "Find the right shelf" (3 age-band cards → `/books?age=`) 
 - **Mobile screenshots:** headless `--window-size` MISREPORTS overflow for `overflow-x-auto` scroll strips (false clipping). For true mobile, use **CDP `Emulation.setDeviceMetricsOverride`** via `websocket-client` (`--remote-allow-origins=*`).
 - **Static export quirk:** dynamic routes need non-empty `generateStaticParams`; an empty one fails the export (that's why `/blog/[slug]` was removed when posts went to zero).
 - next/image lazy `IntersectionObserver` is unreliable for **rotated/absolute** elements — use `loading="eager"`/`priority` for the series fans + hero arc.
+- **In-app webview hardening (book pages, 06/2026):** Pinterest/IG/FB in-app browsers showed a broken *first paint* on book detail pages — hero image overflowing right, a blank-looking "Find on Amazon" pill, body text not wrapping — that self-corrected after a beat. Fixed defensively: `text-size-adjust:100%` + `overflow-x:clip` on `html`/`body` in `app/globals.css` (`clip`, NOT `hidden`, so the sticky nav still works) + explicit `viewport` (`viewport-fit:cover`) in `app/layout.tsx` + `min-w-0` on the book-page grid columns. The CTA label is **static HTML** (not JS-populated), so it was never truly empty — the blank look was the overflow artifact. Steady-state has **0 horizontal overflow** at 390px. ⚠ Headless Chrome renders the page correctly and can't reproduce the webview first-paint glitch — don't remove these without re-testing in a real in-app browser.
 
 ## 10. Outstanding work
 
@@ -101,6 +102,7 @@ Hero (book arc) → "Find the right shelf" (3 age-band cards → `/books?age=`) 
 - **`/books` catalog is client-rendered** (`BooksBrowser`, `?age=`/`?series=` filters) → empty to non-JS crawlers. SEO improvement opportunity.
 - **For Parents page** still has a "reading-together photo coming soon" placeholder slot.
 - **Email capture:** the footer `EmailSignup` is a non-functional stub (captures nothing). Real capture happens via Lemon Squeezy on free packs. A general newsletter would need an ESP wired.
+- **Confirm the in-app-webview book-page fix (§9) on a real Pinterest/IG in-app browser** — verified locally (0 overflow) but the actual webview first-paint glitch couldn't be reproduced in headless Chrome.
 - Minor: dead `bedtime` `AgeBadge` variant + tailwind token (unused; cleanup).
 - Parents meta description is slightly reading-centric (flagged, left as-is).
 
