@@ -1,6 +1,6 @@
 # Little Acre Learning — Website HANDOFF
 
-Living source-of-truth for this repo. Update it as the site changes. Last updated: 2026-06-30.
+Living source-of-truth for this repo. Update it as the site changes. Last updated: 2026-07-01.
 
 ---
 
@@ -11,6 +11,27 @@ Marketing/storefront website for **Little Acre Learning** — a children's **col
 - **Live site:** https://littleacrelearning.com (apex, non-www — the one canonical domain)
 - **Brand owner:** Little Acre Learning is a brand of **Built by Josh Studio LLC** (footer attribution links to https://builtbyjoshstudio.com).
 - Little Acre Learning is **both publisher and author/imprint** of every book (no separate personal author name).
+
+## 1a. Repository architecture — TWO repos (read this first if reconstructing on a new machine)
+
+Little Acre Learning is deliberately split across **two GitHub repos**:
+
+**1. Public site repo — the CODE (this repo).** `github.com/builtbyjoshstudio-cyber/littleacrelearning`
+- Serves **littleacrelearning.com** via **GitHub Pages** → **must stay PUBLIC** (Pages on the free plan only serves public repos; making it private takes the live site down).
+- Clone: `git clone https://github.com/builtbyjoshstudio-cyber/littleacrelearning.git`
+- Local: `C:\Users\jotra\OneDrive\Desktop\Little Acre Learning\littleacrelearning`
+- `graphify-out/` here is **gitignored** ("local-only, not published") — never commit it to this public repo.
+
+**2. Private workspace repo — the MEMORY LAYER + assets.** `github.com/builtbyjoshstudio-cyber/little-acre-learning-workspace`
+- **Private.** Holds `WIKI.md`, `MARKETING.md`, `docs/graph` + `docs/wiki` + `docs/vault` (the Graphify graph / agent-wiki / Obsidian vault), the Pinterest Kit video pins, the static pins, and the Design Assets brand pack.
+- Clone: `git clone https://github.com/builtbyjoshstudio-cyber/little-acre-learning-workspace.git`
+- Local: `C:\Users\jotra\OneDrive\Desktop\Little Acre Learning` — the **parent** of this repo (the site repo is a gitignored subfolder of it).
+
+**End of session = commit + push BOTH repos:**
+- Code changes → the **public** site repo (normal `git commit` + push to `main`).
+- Wiki / vault / graph / docs → the **private** workspace repo: run **`.\backup.ps1`** from the workspace root — it regenerates the memory layer and commits + pushes the private repo in one step (see the workspace's `CLAUDE.md`).
+
+**Reconstruct on a new machine:** clone BOTH repos so the site repo sits at `<workspace>\littleacrelearning`; `pip install graphifyy` and run `graphify update .` once inside the site repo; then `.\backup.ps1` from the workspace keeps the memory layer current. (Book production is separate — Google Drive `G:\My Drive\Educational Books`, its own HANDOFF.)
 
 ## 2. The catalog (15 books = 5 series × 3 age bands)
 
