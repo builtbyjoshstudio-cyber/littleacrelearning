@@ -33,6 +33,8 @@ Little Acre Learning is deliberately split across **two GitHub repos**:
 
 **Reconstruct on a new machine:** clone BOTH repos so the site repo sits at `<workspace>\littleacrelearning`; `pip install graphifyy` and run `graphify update .` once inside the site repo; then `.\backup.ps1` from the workspace keeps the memory layer current. (Book production is separate — Google Drive `G:\My Drive\Educational Books`, its own HANDOFF.)
 
+**This project is the reference implementation of the standard two-repo *workspace pattern*** (private `<project>-workspace` + a nested, gitignored public product repo + `backup.ps1` as the auto-push mechanism). Reusable template: **`github.com/builtbyjoshstudio-cyber/project-workspace-template`** (private — see its `SETUP.md` to stamp the pattern onto a new project).
+
 ## 2. The catalog (15 books = 5 series × 3 age bands)
 
 All books are coloring/activity books that follow the same per-age-band pattern:
