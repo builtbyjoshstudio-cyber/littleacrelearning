@@ -4,12 +4,15 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { books, getBook, getRelatedBooks } from "@/content/books";
 import { getBandByAge } from "@/content/ageBands";
+import { getSeriesMeta } from "@/content/series";
 import { AgeBadge } from "@/components/AgeBadge";
 import { CoverPlaceholder } from "@/components/CoverPlaceholder";
 import { AmazonButton } from "@/components/AmazonButton";
 import { BookCard } from "@/components/BookCard";
+import { Faq } from "@/components/Faq";
 import { JsonLd } from "@/components/JsonLd";
-import { bookSchema, breadcrumbSchema } from "@/lib/schema";
+import { bookSchema, breadcrumbSchema, faqPageSchema } from "@/lib/schema";
+import { bookFaqs } from "@/lib/faq";
 
 export function generateStaticParams() {
   return books.map((b) => ({ slug: b.slug }));
@@ -61,8 +64,10 @@ export default function BookPage({ params }: { params: { slug: string } }) {
   if (!book) notFound();
 
   const band = getBandByAge(book.ageBand);
+  const seriesMeta = getSeriesMeta(book.series);
   const related = getRelatedBooks(book);
   const seriesTotal = books.filter((b) => b.series === book.series).length;
+  const faqs = bookFaqs(book);
 
   const stats = [
     { label: "Pages", value: String(book.pages) },
@@ -75,6 +80,7 @@ export default function BookPage({ params }: { params: { slug: string } }) {
     <div className="shell py-8 md:py-12">
       <JsonLd data={bookSchema(book)} />
       <JsonLd data={breadcrumbSchema(book)} />
+      <JsonLd data={faqPageSchema(faqs)} />
       {/* Breadcrumb */}
       <nav className="mb-6 flex flex-wrap items-center gap-1.5 text-[13px] text-muted">
         <Link href="/books" className="hover:text-forest">
@@ -154,7 +160,13 @@ export default function BookPage({ params }: { params: { slug: string } }) {
             {book.subtitle}
           </p>
           <p className="mt-1.5 text-[15px] text-muted">
-            {book.series} · {book.byline}
+            <Link
+              href={`/series/${seriesMeta.slug}/`}
+              className="font-semibold text-forest hover:underline"
+            >
+              {book.series}
+            </Link>{" "}
+            · {book.byline}
           </p>
           {book.price && (
             <p className="mt-4 font-display text-[30px] font-extrabold text-terracotta">
@@ -251,6 +263,9 @@ export default function BookPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
       </div>
+
+      {/* Common questions (visible copy matches the FAQPage JSON-LD above) */}
+      <Faq items={faqs} className="mt-14 md:mt-16" />
 
       {/* More in this age range */}
       {related.length > 0 && (

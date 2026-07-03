@@ -4,10 +4,12 @@
  */
 export function AmazonButton({
   href,
+  label = "Find on Amazon",
   fullWidth = false,
   className = "",
 }: {
   href: string;
+  label?: string;
   fullWidth?: boolean;
   className?: string;
 }) {
@@ -43,7 +45,7 @@ export function AmazonButton({
           strokeLinecap="round"
         />
       </svg>
-      Find on Amazon
+      {label}
     </a>
   );
 }

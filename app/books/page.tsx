@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import type { Metadata } from "next";
 import { books } from "@/content/books";
 import { BooksBrowser } from "@/components/BooksBrowser";
@@ -25,9 +24,7 @@ export default function BooksPage() {
         </p>
       </header>
 
-      <Suspense fallback={<div className="py-12 text-muted">Loading books…</div>}>
-        <BooksBrowser books={books} />
-      </Suspense>
+      <BooksBrowser books={books} />
     </div>
   );
 }

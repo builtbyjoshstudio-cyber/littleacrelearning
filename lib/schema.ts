@@ -1,4 +1,4 @@
-import type { Book, Post } from "./types";
+import type { Book, Post, SeriesMeta } from "./types";
 
 export const SITE_URL = "https://littleacrelearning.com";
 export const ORG_ID = `${SITE_URL}/#organization`;
@@ -118,6 +118,69 @@ export function blogPostingSchema(post: Post) {
     image: `${SITE_URL}${post.coverImage ?? "/og.png"}`,
     author: org,
     publisher: org,
+  };
+}
+
+/**
+ * CollectionPage for a per-series landing page, with the series' books as an
+ * ItemList. One authoritative cluster page per series for category queries and
+ * AI retrieval. No price/offers (Amazon is the price source of truth).
+ */
+export function seriesCollectionSchema(meta: SeriesMeta, seriesBooks: Book[]) {
+  const url = `${SITE_URL}/series/${meta.slug}/`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${url}#collection`,
+    name: `${meta.name} — coloring & activity books for ages 2–10`,
+    description: meta.tagline,
+    url,
+    about: { "@type": "Organization", "@id": ORG_ID },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: seriesBooks.map((b, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        url: `${SITE_URL}/books/${b.slug}/`,
+        name: `${b.title} — ${b.subtitle}`,
+      })),
+    },
+  };
+}
+
+/** Home → Books → [Series] breadcrumb trail for a series landing page. */
+export function seriesBreadcrumbSchema(meta: SeriesMeta) {
+  const url = `${SITE_URL}/series/${meta.slug}/`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: "Books", item: `${SITE_URL}/books/` },
+      { "@type": "ListItem", position: 3, name: meta.name, item: url },
+    ],
+  };
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+/**
+ * FAQPage entity built from the SAME Q&A list rendered visibly on the page
+ * (see components/Faq.tsx) — Google requires the answer text to be present
+ * on-page, and AI answer engines lift these self-contained Q&A directly.
+ */
+export function faqPageSchema(items: FaqItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((it) => ({
+      "@type": "Question",
+      name: it.question,
+      acceptedAnswer: { "@type": "Answer", text: it.answer },
+    })),
   };
 }
 

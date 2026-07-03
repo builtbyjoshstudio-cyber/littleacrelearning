@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { books } from "@/content/books";
 import { posts } from "@/content/posts";
+import { seriesMetaList } from "@/content/series";
 
 const BASE = "https://littleacrelearning.com";
 
@@ -24,6 +25,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly" as const,
       priority: 0.8,
+    })),
+    // Per-series landing pages (route-manual: /series/<slug>/ is a dynamic
+    // route not derived elsewhere, so it's enumerated here by hand).
+    ...seriesMetaList.map((s) => ({
+      url: `${BASE}/series/${s.slug}/`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
     {
       url: `${BASE}/printables/`,

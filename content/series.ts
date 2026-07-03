@@ -7,9 +7,8 @@ import {
   JUNGLE_GRADIENT,
 } from "./books";
 
-// Plan B: when per-series landing pages exist, swap this to `/series/${slug}/`.
-const seriesHref = (series: Series) =>
-  `/books?series=${encodeURIComponent(series)}`;
+// Series cards point at the per-series landing page (the SEO/GEO cluster hub).
+const seriesHref = (slug: string) => `/series/${slug}/`;
 
 export const seriesMetaList: SeriesMeta[] = [
   {
@@ -20,7 +19,7 @@ export const seriesMetaList: SeriesMeta[] = [
       "Friendly farm animals to color and learn about — a book for every stage, ages 2–10.",
     gradient: FARM_GRADIENT,
     accent: "#2E9D93",
-    href: seriesHref("Farm Friends"),
+    href: seriesHref("farm-friends"),
   },
   {
     series: "Dino Friends",
@@ -30,8 +29,7 @@ export const seriesMetaList: SeriesMeta[] = [
       "Dinosaurs to color and learn about — a book for every stage, ages 2–10.",
     gradient: DINO_GRADIENT,
     accent: "#4E9A3E",
-    href: seriesHref("Dino Friends"),
-    // Plan B: Amazon series page — stored, not surfaced yet. Verify live first.
+    href: seriesHref("dino-friends"),
     amazonSeriesUrl: "https://www.amazon.com/dp/B0H6C5GSF1",
   },
   {
@@ -42,8 +40,7 @@ export const seriesMetaList: SeriesMeta[] = [
       "Sea creatures to color and learn about — a book for every stage, ages 2–10.",
     gradient: OCEAN_GRADIENT,
     accent: "#1E76A6",
-    href: seriesHref("Ocean Friends"),
-    // Plan B: Amazon series page — stored, not surfaced yet.
+    href: seriesHref("ocean-friends"),
     amazonSeriesUrl: "https://www.amazon.com/dp/B0H6CB7SS8",
   },
   {
@@ -54,8 +51,7 @@ export const seriesMetaList: SeriesMeta[] = [
       "Safari animals to color and learn about — a book for every stage, ages 2–10.",
     gradient: SAFARI_GRADIENT,
     accent: "#C2701F",
-    href: seriesHref("Safari Friends"),
-    // Plan B: Amazon series page — stored, not surfaced yet.
+    href: seriesHref("safari-friends"),
     amazonSeriesUrl: "https://www.amazon.com/dp/B0H6H9QT1F",
   },
   {
@@ -66,7 +62,7 @@ export const seriesMetaList: SeriesMeta[] = [
       "Rainforest animals to color and learn about — a book for every stage, ages 2–10.",
     gradient: JUNGLE_GRADIENT,
     accent: "#1E5631",
-    href: seriesHref("Jungle Friends"),
+    href: seriesHref("jungle-friends"),
   },
 ];
 
@@ -80,4 +76,8 @@ const bySeries: Record<Series, SeriesMeta> = seriesMetaList.reduce(
 
 export function getSeriesMeta(series: Series): SeriesMeta {
   return bySeries[series];
+}
+
+export function getSeriesMetaBySlug(slug: string): SeriesMeta | undefined {
+  return seriesMetaList.find((s) => s.slug === slug);
 }

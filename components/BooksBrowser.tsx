@@ -1,7 +1,7 @@
 "use client";
 
-import { useCallback, useMemo } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import type { AgeBand, Book, Series } from "@/lib/types";
 import { ageBands, seriesList } from "@/content/ageBands";
 import { BookCard } from "./BookCard";
@@ -17,21 +17,43 @@ function bandSolid(age: AgeBand): string {
 
 export function BooksBrowser({ books }: { books: Book[] }) {
   const router = useRouter();
-  const params = useSearchParams();
 
-  const activeAge = (params.get("age") as AgeBand | "all") || "all";
-  const activeSeries = (params.get("series") as Series | null) || null;
+  // Filters live in React state (default "all") so the FULL 15-book catalog is
+  // rendered into the static HTML — crawlers and AI retrieval bots see every
+  // card. We read the initial ?age=/?series= from the URL after mount rather
+  // than via useSearchParams(), which would force the static export to emit
+  // only this route's Suspense fallback ("Loading books…") and leave the
+  // catalog empty to non-JS clients.
+  const [activeAge, setActiveAge] = useState<AgeBand | "all">("all");
+  const [activeSeries, setActiveSeries] = useState<Series | null>(null);
+
+  useEffect(() => {
+    const sp = new URLSearchParams(window.location.search);
+    const age = sp.get("age") as AgeBand | null;
+    const series = sp.get("series") as Series | null;
+    if (age) setActiveAge(age);
+    if (series) setActiveSeries(series);
+  }, []);
 
   const setParam = useCallback(
     (key: string, value: string | null) => {
-      const next = new URLSearchParams(params.toString());
+      if (key === "age") setActiveAge((value as AgeBand | null) ?? "all");
+      else if (key === "series") setActiveSeries((value as Series | null) ?? null);
+      // Keep the URL shareable/deep-linkable without a full navigation.
+      const next = new URLSearchParams(window.location.search);
       if (value === null) next.delete(key);
       else next.set(key, value);
       const qs = next.toString();
       router.replace(qs ? `/books?${qs}` : "/books", { scroll: false });
     },
-    [params, router],
+    [router],
   );
+
+  const clearFilters = useCallback(() => {
+    setActiveAge("all");
+    setActiveSeries(null);
+    router.replace("/books", { scroll: false });
+  }, [router]);
 
   const filtered = useMemo(
     () =>
@@ -151,7 +173,7 @@ export function BooksBrowser({ books }: { books: Book[] }) {
 
           {(activeAge !== "all" || activeSeries) && (
             <button
-              onClick={() => router.replace("/books", { scroll: false })}
+              onClick={clearFilters}
               className="mt-6 font-sans text-[13px] font-bold text-terracotta hover:underline"
             >
               Clear filters
@@ -187,7 +209,7 @@ export function BooksBrowser({ books }: { books: Book[] }) {
                 </div>
                 <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
                   {bandBooks.map((book) => (
-                    <BookCard key={book.slug} book={book} />
+                    <BookCard key={book.slug} book={book} showDescription />
                   ))}
                 </div>
               </section>
@@ -196,7 +218,7 @@ export function BooksBrowser({ books }: { books: Book[] }) {
         ) : (
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
             {filtered.map((book) => (
-              <BookCard key={book.slug} book={book} />
+              <BookCard key={book.slug} book={book} showDescription />
             ))}
           </div>
         )}
