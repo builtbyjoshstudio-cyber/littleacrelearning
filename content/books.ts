@@ -413,7 +413,7 @@ export const books: Book[] = [
     ],
     pages: 70,
     format: "Activity book",
-    amazonUrl: null,
+    amazonUrl: "https://www.amazon.com/dp/B0H7PCYV1X",
     coverImage: "/covers/jungle-friends-5-7.jpg",
     gradient: JUNGLE_GRADIENT,
     previewImages: previews("jungle-friends-5-7", 10),
