@@ -35,7 +35,7 @@ export const books: Book[] = [
     format: "Coloring book",
     amazonUrl: null,
     freePackUrl:
-      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/33ca28e9-c433-470e-a12d-7fd1feae90e4",
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/33ca28e9-c433-470e-a12d-7fd1feae90e4",
     coverImage: "/covers/farm-friends-2-4.jpg",
     gradient: FARM_GRADIENT,
     previewImages: previews("farm-friends-2-4", 6),
@@ -64,7 +64,7 @@ export const books: Book[] = [
     format: "Activity book",
     amazonUrl: "https://www.amazon.com/dp/B0H5RMDKMR",
     freePackUrl:
-      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/b9ab1e61-d641-4a83-ad0f-bc6fb25afbbc",
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/b9ab1e61-d641-4a83-ad0f-bc6fb25afbbc",
     coverImage: "/covers/farm-friends-5-7.jpg",
     gradient: FARM_GRADIENT,
     previewImages: previews("farm-friends-5-7", 6),
@@ -93,7 +93,7 @@ export const books: Book[] = [
     format: "Coloring book",
     amazonUrl: "https://www.amazon.com/dp/B0H5TNJ4NG",
     freePackUrl:
-      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/3f0565aa-b96d-47bb-bd86-b856fafe7be8",
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/3f0565aa-b96d-47bb-bd86-b856fafe7be8",
     coverImage: "/covers/farm-friends-8-10.jpg",
     gradient: FARM_GRADIENT,
     previewImages: previews("farm-friends-8-10", 6),
@@ -124,7 +124,7 @@ export const books: Book[] = [
     format: "Activity coloring book",
     amazonUrl: "https://www.amazon.com/dp/B0H65VTNMG",
     freePackUrl:
-      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/2774a85f-8308-4095-8461-5baa6a2e835f",
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/2774a85f-8308-4095-8461-5baa6a2e835f",
     coverImage: "/covers/dino-friends-2-4.jpg",
     gradient: DINO_GRADIENT,
     previewImages: previews("dino-friends-2-4", 10),
@@ -153,7 +153,7 @@ export const books: Book[] = [
     format: "Activity book",
     amazonUrl: "https://www.amazon.com/dp/B0H67G4XNJ",
     freePackUrl:
-      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/95f6bf8a-f31e-4ae7-8bd8-6cac5b995699",
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/95f6bf8a-f31e-4ae7-8bd8-6cac5b995699",
     coverImage: "/covers/dino-friends-5-7.jpg",
     gradient: DINO_GRADIENT,
     previewImages: previews("dino-friends-5-7", 10),
@@ -181,7 +181,7 @@ export const books: Book[] = [
     format: "Coloring book",
     amazonUrl: "https://www.amazon.com/dp/B0H66G7FB7",
     freePackUrl:
-      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/de378864-8434-44ea-9d30-e6b55683ef47",
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/de378864-8434-44ea-9d30-e6b55683ef47",
     coverImage: "/covers/dino-friends-8-10.jpg",
     gradient: DINO_GRADIENT,
     previewImages: previews("dino-friends-8-10", 10),
@@ -212,7 +212,7 @@ export const books: Book[] = [
     format: "Coloring book",
     amazonUrl: "https://www.amazon.com/dp/B0H6SNTK6Q",
     freePackUrl:
-      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/94d8fc05-264a-416b-8792-d690fe3037ac",
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/94d8fc05-264a-416b-8792-d690fe3037ac",
     coverImage: "/covers/ocean-friends-2-4.jpg",
     gradient: OCEAN_GRADIENT,
     previewImages: previews("ocean-friends-2-4", 10),
@@ -241,7 +241,7 @@ export const books: Book[] = [
     format: "Activity book",
     amazonUrl: "https://www.amazon.com/dp/B0H6LVJ4MQ",
     freePackUrl:
-      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/f1e4ed0e-b525-4c39-95dc-5a5fff870368",
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/f1e4ed0e-b525-4c39-95dc-5a5fff870368",
     coverImage: "/covers/ocean-friends-5-7.jpg",
     gradient: OCEAN_GRADIENT,
     previewImages: previews("ocean-friends-5-7", 10),
@@ -269,7 +269,7 @@ export const books: Book[] = [
     format: "Coloring book",
     amazonUrl: "https://www.amazon.com/dp/B0H6CCP4PZ",
     freePackUrl:
-      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/29238fd0-ac7b-4daf-968b-61751e109bd6",
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/29238fd0-ac7b-4daf-968b-61751e109bd6",
     coverImage: "/covers/ocean-friends-8-10.jpg",
     gradient: OCEAN_GRADIENT,
     previewImages: previews("ocean-friends-8-10", 10),
@@ -299,7 +299,7 @@ export const books: Book[] = [
     format: "Coloring book",
     amazonUrl: "https://www.amazon.com/dp/B0H6MDP2LJ",
     freePackUrl:
-      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/de1af5c6-bd5f-4d8a-86cb-2744c3a42a9c",
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/de1af5c6-bd5f-4d8a-86cb-2744c3a42a9c",
     coverImage: "/covers/safari-friends-2-4.jpg",
     gradient: SAFARI_GRADIENT,
     previewImages: previews("safari-friends-2-4", 10),
@@ -328,7 +328,7 @@ export const books: Book[] = [
     format: "Activity book",
     amazonUrl: "https://www.amazon.com/dp/B0H6GTQHYY",
     freePackUrl:
-      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/2d54745e-fc85-4c1e-b0fd-93450bfa6e57",
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/2d54745e-fc85-4c1e-b0fd-93450bfa6e57",
     coverImage: "/covers/safari-friends-5-7.jpg",
     gradient: SAFARI_GRADIENT,
     previewImages: previews("safari-friends-5-7", 10),
@@ -357,7 +357,7 @@ export const books: Book[] = [
     format: "Coloring book",
     amazonUrl: "https://www.amazon.com/dp/B0H6H75MY1",
     freePackUrl:
-      "https://tynkrtoolsco.lemonsqueezy.com/checkout/buy/26b8eb7d-24e0-41f6-884a-9958e610122a",
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/26b8eb7d-24e0-41f6-884a-9958e610122a",
     coverImage: "/covers/safari-friends-8-10.jpg",
     gradient: SAFARI_GRADIENT,
     previewImages: previews("safari-friends-8-10", 10),
@@ -387,6 +387,8 @@ export const books: Book[] = [
     pages: 50,
     format: "Coloring book",
     amazonUrl: "https://www.amazon.com/dp/B0H7FF92FB",
+    freePackUrl:
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/10615cc4-b2c1-46b9-8831-55296f8672f7",
     coverImage: "/covers/jungle-friends-2-4.jpg",
     gradient: JUNGLE_GRADIENT,
     previewImages: previews("jungle-friends-2-4", 10),
@@ -414,6 +416,8 @@ export const books: Book[] = [
     pages: 70,
     format: "Activity book",
     amazonUrl: "https://www.amazon.com/dp/B0H7PCYV1X",
+    freePackUrl:
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/0953f05e-01bf-4c32-83e3-d76b4a62dc9b",
     coverImage: "/covers/jungle-friends-5-7.jpg",
     gradient: JUNGLE_GRADIENT,
     previewImages: previews("jungle-friends-5-7", 10),
@@ -441,6 +445,8 @@ export const books: Book[] = [
     pages: 80,
     format: "Coloring book",
     amazonUrl: "https://www.amazon.com/dp/B0H7F5T5HW",
+    freePackUrl:
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/a9315d35-5105-4a4c-be6a-0cb44f9126b6",
     coverImage: "/covers/jungle-friends-8-10.jpg",
     gradient: JUNGLE_GRADIENT,
     previewImages: previews("jungle-friends-8-10", 10),
