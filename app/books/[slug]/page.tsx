@@ -27,17 +27,17 @@ export function generateMetadata({
   if (!book) return { title: "Book not found" };
   const url = `/books/${book.slug}/`;
   const band = getBandByAge(book.ageBand);
-  // Unique, descriptive <title> per book: series · "Ages X–Y" · skill descriptor
-  // (the real subtitle, stripped of its "A …Coloring/Activity Book" wrapper).
-  // This distinguishes the 3 same-series books, which otherwise share a title.
-  const descriptor = book.subtitle
-    .replace(/^A\s+/i, "")
-    .replace(/\s+(Activity\s+)?Coloring\s+Book$/i, "")
-    .replace(/\s+Activity\s+Book$/i, "")
-    .trim();
+  // Keyword-forward <title>: "<Series> <Format> · Ages X–Y · Little Acre Learning".
+  // GSC shows people search "<series> book" / "coloring book" — the old
+  // descriptor-only title stripped out "Coloring/Activity Book" entirely. Age
+  // keeps the 3 same-series books unique. title.absolute bypasses the
+  // "%s · Little Acre Learning" template so the brand isn't doubled.
+  const formatTitle = book.format.replace(/\b\w/g, (c) => c.toUpperCase());
   const ogTitle = `${book.title} — ${book.subtitle}`;
   return {
-    title: `${book.title} · ${band.ages} ${descriptor}`,
+    title: {
+      absolute: `${book.series} ${formatTitle} · ${band.ages} · Little Acre Learning`,
+    },
     description: book.shortDescription,
     alternates: { canonical: url },
     openGraph: {
