@@ -5,6 +5,9 @@ export const DINO_GRADIENT = "linear-gradient(135deg,#7FC96B,#4E9A3E)";
 export const OCEAN_GRADIENT = "linear-gradient(135deg,#45A8D6,#1E76A6)";
 export const SAFARI_GRADIENT = "linear-gradient(135deg,#F2B43C,#C2701F)";
 export const JUNGLE_GRADIENT = "linear-gradient(135deg,#5BA668,#1E5631)";
+// Trace & Learn — the handwriting/pre-writing workbook line (not an animal
+// coloring series). Warm gold to match the "Trace & Learn" cover wordmark.
+export const TRACE_LEARN_GRADIENT = "linear-gradient(135deg,#F5C24A,#D98A2E)";
 
 // Sample interior pages live at /previews/<slug>/<n>.jpg
 const previews = (slug: string, n: number): string[] =>
@@ -450,6 +453,95 @@ export const books: Book[] = [
     coverImage: "/covers/jungle-friends-8-10.jpg",
     gradient: JUNGLE_GRADIENT,
     previewImages: previews("jungle-friends-8-10", 10),
+    featured: true,
+  },
+
+  // ─────────────────── Trace & Learn (workbook line) ───────────────────
+  {
+    slug: "trace-learn-2-4",
+    title: "Little Acre Trace & Learn",
+    subtitle: "A First Pen Control & Pre-Writing Workbook",
+    series: "Trace & Learn",
+    bookNumber: 1,
+    ageBand: "2-4",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Chunky lines, curves, corners, and first shapes to trace — the pencil control that comes before letters, built for the very littlest hands.",
+    longDescription:
+      "Before a child can write a letter, their hand has to learn to steer a pencil. This first workbook builds that control the fun way: big start-dots, follow-the-arrow paths, and chunky dashed lines to trace across four sections — Lines, Curves, Corners, and Shapes. Every page starts at a dot, follows an arrow, and ends in a happy little win.",
+    whatItTeaches: [
+      "Lines, curves, corners & first shapes",
+      "Start-dot and follow-the-arrow paths",
+      "Chunky dashed lines for little hands",
+      "Pre-writing control before letters begin",
+    ],
+    pages: 104,
+    format: "Pre-Writing Workbook",
+    amazonUrl: "https://www.amazon.com/dp/B0H7RLJ2CB",
+    freePackUrl:
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/b1a34cda-70a9-42c4-9b09-f8856cf6f77e",
+    coverImage: "/covers/trace-learn-2-4.jpg",
+    gradient: TRACE_LEARN_GRADIENT,
+    previewImages: previews("trace-learn-2-4", 10),
+    featured: true,
+  },
+  {
+    slug: "trace-learn-5-7",
+    title: "Little Acre Trace & Learn",
+    subtitle: "An Alphabet, Numbers & Sight Words Handwriting Workbook",
+    series: "Trace & Learn",
+    bookNumber: 2,
+    ageBand: "5-7",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Trace and write the whole alphabet, numbers 0–20, and 40 first sight words — real handwriting practice, one friendly page at a time.",
+    longDescription:
+      "The workbook that turns tracing into real handwriting. Children trace and then write every letter A–Z (uppercase and lowercase), count and form the numbers 0 to 20, and practice 40 first sight words — each on clear handwriting guidelines with a start dot and arrow, so letters are formed the right way from the very start.",
+    whatItTeaches: [
+      "A–Z uppercase & lowercase, formed correctly",
+      "Count and write the numbers 0–20",
+      "40 first (Dolch pre-primer) sight words",
+      "Trace it, then write it yourself",
+    ],
+    pages: 148,
+    format: "Handwriting Workbook",
+    amazonUrl: "https://www.amazon.com/dp/B0H7M8HBTK",
+    freePackUrl:
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/2b70d5e7-dd7d-4b20-a12f-db0528187b2b",
+    coverImage: "/covers/trace-learn-5-7.jpg",
+    gradient: TRACE_LEARN_GRADIENT,
+    previewImages: previews("trace-learn-5-7", 10),
+    featured: true,
+  },
+  {
+    slug: "trace-learn-8-10",
+    title: "Little Acre Trace & Learn Cursive",
+    subtitle: "A Joined-Up Cursive Handwriting & Dinosaur Facts Workbook",
+    series: "Trace & Learn",
+    bookNumber: 3,
+    ageBand: "8-10",
+    price: null,
+    byline: "Little Acre Learning",
+    shortDescription:
+      "Learn joined-up cursive by tracing every letter, the loops and links, and 34 real dinosaur facts worth writing down.",
+    longDescription:
+      "Cursive, made to click. Children trace every cursive letter a–z, practice the joins that link them together, then copy real, checked dinosaur facts in their own joined-up writing. It's handwriting practice with something genuinely interesting to write about — 34 true dinosaur facts in all.",
+    whatItTeaches: [
+      "Every cursive letter, a–z",
+      "The joins — loops and links between letters",
+      "Copy 34 real, checked dinosaur facts",
+      "Trace, feel the joins, then write on your own",
+    ],
+    pages: 162,
+    format: "Cursive Workbook",
+    amazonUrl: "https://www.amazon.com/dp/B0H7P1QZYM",
+    freePackUrl:
+      "https://builtbyjoshstudio.lemonsqueezy.com/checkout/buy/f20eb69a-4743-4944-9749-638c208d6cf7",
+    coverImage: "/covers/trace-learn-8-10.jpg",
+    gradient: TRACE_LEARN_GRADIENT,
+    previewImages: previews("trace-learn-8-10", 10),
     featured: true,
   },
 ];

@@ -63,4 +63,5 @@ export const seriesList: Series[] = [
   "Ocean Friends",
   "Safari Friends",
   "Jungle Friends",
+  "Trace & Learn",
 ];

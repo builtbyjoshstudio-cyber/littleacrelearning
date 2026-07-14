@@ -5,6 +5,7 @@ import {
   OCEAN_GRADIENT,
   SAFARI_GRADIENT,
   JUNGLE_GRADIENT,
+  TRACE_LEARN_GRADIENT,
 } from "./books";
 
 // Series cards point at the per-series landing page (the SEO/GEO cluster hub).
@@ -63,6 +64,16 @@ export const seriesMetaList: SeriesMeta[] = [
     gradient: JUNGLE_GRADIENT,
     accent: "#1E5631",
     href: seriesHref("jungle-friends"),
+  },
+  {
+    series: "Trace & Learn",
+    slug: "trace-learn",
+    name: "Trace & Learn",
+    tagline:
+      "Handwriting & pre-writing workbooks — pencil control, letters, numbers, and cursive to trace and write, ages 2–10.",
+    gradient: TRACE_LEARN_GRADIENT,
+    accent: "#B26A16",
+    href: seriesHref("trace-learn"),
   },
 ];
 

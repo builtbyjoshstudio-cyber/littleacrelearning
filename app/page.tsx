@@ -161,7 +161,7 @@ export default function HomePage() {
             Explore the series
           </h2>
         </div>
-        <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-5 md:gap-6">
+        <div className="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 md:gap-6">
           {seriesMetaList.map((meta) => (
             <SeriesCard key={meta.series} meta={meta} />
           ))}

@@ -18,9 +18,9 @@ export default function BooksPage() {
           All books
         </h1>
         <p className="mt-2 max-w-xl text-[15px] text-body-soft md:text-[17px]">
-          {books.length} warm, wholesome coloring &amp; activity books across three
-          age bands and five series — Farm Friends, Dino Friends, Ocean Friends,
-          Safari Friends, and Jungle Friends.
+          {books.length} warm, wholesome books across three age bands — five
+          coloring &amp; activity series (Farm, Dino, Ocean, Safari, and Jungle
+          Friends) plus the new Trace &amp; Learn handwriting workbooks.
         </p>
       </header>
 

@@ -18,6 +18,14 @@ import { seriesFaqs } from "@/lib/faq";
 
 const BAND_ORDER: Record<AgeBand, number> = { "2-4": 0, "5-7": 1, "8-10": 2 };
 
+// Trace & Learn is a workbook line, so its age-band blurbs differ from the
+// coloring-series band descriptions in content/ageBands.ts.
+const TL_BAND_DESC: Record<AgeBand, string> = {
+  "2-4": "First pencil control — trace big lines, curves, corners, and shapes before letters begin.",
+  "5-7": "Trace and write the alphabet, numbers 0–20, and 40 first sight words on handwriting lines.",
+  "8-10": "Joined-up cursive — every letter, the joins between them, and real dinosaur facts to copy.",
+};
+
 export function generateStaticParams() {
   return seriesMetaList.map((s) => ({ slug: s.slug }));
 }
@@ -96,11 +104,23 @@ export default function SeriesPage({ params }: { params: { slug: string } }) {
 
       {/* Intro */}
       <p className="mx-auto mt-8 max-w-2xl text-center text-[16px] leading-relaxed text-body-soft md:text-[17px]">
-        The {meta.name} series comes as three coloring &amp; activity books — one
-        for every stage from ages 2 to 10. The animals stay familiar while the
-        activities grow with your child: first words and counting for the
-        littlest, tracing and reading in the middle years, and true facts to
-        read, think about, and color for older children.
+        {meta.series === "Trace & Learn" ? (
+          <>
+            The {meta.name} line comes as three workbooks — one for every stage
+            from ages 2 to 10. Handwriting that grows with your child: first
+            pencil control for the littlest, tracing and writing letters,
+            numbers, and sight words in the middle years, and joined-up cursive
+            for older kids.
+          </>
+        ) : (
+          <>
+            The {meta.name} series comes as three coloring &amp; activity books —
+            one for every stage from ages 2 to 10. The animals stay familiar
+            while the activities grow with your child: first words and counting
+            for the littlest, tracing and reading in the middle years, and true
+            facts to read, think about, and color for older children.
+          </>
+        )}
       </p>
 
       {/* The three books */}
@@ -143,7 +163,9 @@ export default function SeriesPage({ params }: { params: { slug: string } }) {
                 </span>
               </div>
               <p className="mt-2.5 text-[14.5px] leading-relaxed text-body">
-                {band.description}
+                {meta.series === "Trace & Learn"
+                  ? TL_BAND_DESC[band.ageBand]
+                  : band.description}
               </p>
             </div>
           ))}
