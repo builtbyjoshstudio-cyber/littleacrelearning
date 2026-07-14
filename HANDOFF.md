@@ -35,7 +35,9 @@ Little Acre Learning is deliberately split across **two GitHub repos**:
 
 **This project is the reference implementation of the standard two-repo *workspace pattern*** (private `<project>-workspace` + a nested, gitignored public product repo + `backup.ps1` as the auto-push mechanism). Reusable template: **`github.com/builtbyjoshstudio-cyber/project-workspace-template`** (private — see its `SETUP.md` to stamp the pattern onto a new project).
 
-## 2. The catalog (15 books = 5 series × 3 age bands)
+## 2. The catalog (18 books — 5 coloring series × 3 bands, plus the 3-book Trace & Learn workbook line)
+
+> **NEW: Trace & Learn workbook line — launched on the site 2026-07-09.** A 6th line that is **handwriting / pre-writing workbooks, NOT an animal coloring series**: `trace-learn-2-4` (pen control), `trace-learn-5-7` (alphabet/numbers/sight words), `trace-learn-8-10` (cursive dino facts). Series value = `"Trace & Learn"`, slug `trace-learn`, gold `TRACE_LEARN_GRADIENT`. All 3 **live on Amazon 2026-07-09** (2-4 `B0H7RLJ2CB`, 5-7 `B0H7M8HBTK`, 8-10 `B0H7P1QZYM`) + free packs. ⚠ Because it's workbooks not coloring, **`lib/faq.ts` and the series page branch on `book.series === "Trace & Learn"`** for workbook-appropriate copy — don't feed the workbook line the animal/coloring FAQ or band descriptions. `book.pages` for TL = the real physical page count (104/148/162); `format` = "Pre-Writing/Handwriting/Cursive Workbook". Covers front-cropped from KDP wraps (same pipeline); 10 preview imgs each. Homepage "Explore the series" grid moved 5-up → **3-up (2×3)** to fit 6 cards. Interiors/previews live on `G:\...\Trace and Learn <band> years old\` (its own HANDOFF).
 
 All books are coloring/activity books that follow the same per-age-band pattern:
 
@@ -51,7 +53,7 @@ Five series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Ocea
 
 - ✅ Live: Farm 5-7 `B0H5RMDKMR`, Farm 8-10 `B0H5TNJ4NG`, Dino 2-4 `B0H65VTNMG`, Dino 5-7 `B0H67G4XNJ`, Dino 8-10 `B0H66G7FB7`, Ocean 8-10 `B0H6CCP4PZ`, Ocean 5-7 `B0H6LVJ4MQ`, Ocean 2-4 `B0H6SNTK6Q`, Safari 2-4 `B0H6MDP2LJ`, Safari 5-7 `B0H6GTQHYY`, Safari 8-10 `B0H6H75MY1`, Jungle 2-4 `B0H7FF92FB` (2026-07-03), Jungle 5-7 `B0H7PCYV1X` (2026-07-03), Jungle 8-10 `B0H7F5T5HW` (2026-07-03)
 - ⏳ Coming soon (no live Amazon link yet): **Farm 2-4** (only one left — stuck in KDP review)
-- **Free packs:** ALL 15 books now have a `freePackUrl` (Lemon Squeezy free product). ⚠ **Store renamed `tynkrtoolsco` → `builtbyjoshstudio` (the LLC name) 2026-07-06** — every checkout URL is now `builtbyjoshstudio.lemonsqueezy.com/checkout/buy/<uuid>` (UUIDs unchanged). Jungle free packs added 2026-07-06 (2-4/5-7/8-10). Josh keeps the canonical link list in a "Lemon Squeezy Product links" spreadsheet (sheet "Little Acre Learning Previews") — treat it as the source of truth.
+- **Free packs:** ALL 18 books now have a `freePackUrl` (Lemon Squeezy free product). ⚠ **Store renamed `tynkrtoolsco` → `builtbyjoshstudio` (the LLC name) 2026-07-06** — every checkout URL is now `builtbyjoshstudio.lemonsqueezy.com/checkout/buy/<uuid>` (UUIDs unchanged). Jungle free packs added 2026-07-06 (2-4/5-7/8-10). Josh keeps the canonical link list in a "Lemon Squeezy Product links" spreadsheet (sheet "Little Acre Learning Previews") — treat it as the source of truth.
 - **No hardcoded prices** — Amazon is the source of truth (`book.price` stays `null`; cards show "Available on Amazon →" or "Coming soon"). No cart/checkout on-site.
 
 ## 3. Stack, hosting, deploy
@@ -91,7 +93,7 @@ Five series: **Farm Friends**, **Dino Friends** (NOT "Dinosaur Friends"), **Ocea
 
 Hero (book arc) → "Find the right shelf" (3 age-band cards → `/books?age=`) → "Explore the series" (5 `SeriesCard`s → `/books?series=`, grid `sm:grid-cols-2 lg:grid-cols-5` — 5-up single row on desktop is the only orphan-free layout for 5; tablet is 2-col with a trailing single) → "New this season" (12 featured `BookCard`s, `md:grid-cols-3` = 4 rows) → "Why parents trust us" → free-pack banner.
 - **Hero "book arc":** 3 covers on a mint `#E8EFDF` panel — Ocean 2-4 (tilt −6°), Farm 8-10 (center, larger, z-2, on top), Dino 5-7 (tilt +6°), `priority` covers. Grid pinned `grid-cols-1 md:grid-cols-2`. (Safari is **not** in the hero arc — Josh's call when it launched.)
-- **Featured set (12):** Farm 2-4/5-7/8-10, Dino 2-4, Dino 8-10, Ocean 2-4, Safari 2-4/5-7/8-10, Jungle 2-4/5-7/8-10 (the `featured: true` flags in `books.ts`). All 3 Jungle were featured to keep the grid a clean multiple of 3 (12 = 4 rows) and spotlight the newest series; they sit last in catalog order (4th row).
+- **Featured set (15):** Farm 2-4/5-7/8-10, Dino 2-4, Dino 8-10, Ocean 2-4, Safari 2-4/5-7/8-10, Jungle 2-4/5-7/8-10, and the 3 Trace & Learn workbooks (the `featured: true` flags in `books.ts`). 15 = a clean 5×3 homepage grid; the 3 Trace & Learn sit last (newest, 5th row).
 
 ## 7. SEO / GEO / content-accuracy state
 
